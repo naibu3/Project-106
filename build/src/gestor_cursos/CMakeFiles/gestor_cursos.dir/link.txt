@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgestor_cursos.a CMakeFiles/gestor_cursos.dir/gestor_cursos.cc.o
+/usr/bin/ranlib libgestor_cursos.a

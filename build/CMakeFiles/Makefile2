@@ -98,6 +98,7 @@ src/all: src/usuario/all
 src/all: src/usuario_registrado/all
 src/all: src/coordinador_cursos/all
 src/all: src/lista_cursos/all
+src/all: src/gestor_cursos/all
 
 .PHONY : src/all
 
@@ -107,6 +108,7 @@ src/preinstall: src/usuario/preinstall
 src/preinstall: src/usuario_registrado/preinstall
 src/preinstall: src/coordinador_cursos/preinstall
 src/preinstall: src/lista_cursos/preinstall
+src/preinstall: src/gestor_cursos/preinstall
 
 .PHONY : src/preinstall
 
@@ -116,6 +118,7 @@ src/clean: src/usuario/clean
 src/clean: src/usuario_registrado/clean
 src/clean: src/coordinador_cursos/clean
 src/clean: src/lista_cursos/clean
+src/clean: src/gestor_cursos/clean
 
 .PHONY : src/clean
 
@@ -154,6 +157,26 @@ src/curso/preinstall:
 src/curso/clean: src/curso/CMakeFiles/curso.dir/clean
 
 .PHONY : src/curso/clean
+
+#=============================================================================
+# Directory level rules for directory src/gestor_cursos
+
+# Recursive "all" directory target.
+src/gestor_cursos/all: src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/all
+src/gestor_cursos/all: src/gestor_cursos/CMakeFiles/gestor_cursos.dir/all
+
+.PHONY : src/gestor_cursos/all
+
+# Recursive "preinstall" directory target.
+src/gestor_cursos/preinstall:
+
+.PHONY : src/gestor_cursos/preinstall
+
+# Recursive "clean" directory target.
+src/gestor_cursos/clean: src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/clean
+src/gestor_cursos/clean: src/gestor_cursos/CMakeFiles/gestor_cursos.dir/clean
+
+.PHONY : src/gestor_cursos/clean
 
 #=============================================================================
 # Directory level rules for directory src/lista_cursos
@@ -261,7 +284,7 @@ src/curso/CMakeFiles/curso.dir/clean:
 src/usuario/CMakeFiles/usuario.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/usuario/CMakeFiles/usuario.dir/build.make src/usuario/CMakeFiles/usuario.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/usuario/CMakeFiles/usuario.dir/build.make src/usuario/CMakeFiles/usuario.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=7,8 "Built target usuario"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=11,12 "Built target usuario"
 .PHONY : src/usuario/CMakeFiles/usuario.dir/all
 
 # Build rule for subdir invocation for target.
@@ -288,7 +311,7 @@ src/usuario/CMakeFiles/usuario.dir/clean:
 src/usuario_registrado/CMakeFiles/usuario_registrado.dir/all: src/usuario/CMakeFiles/usuario.dir/all
 	$(MAKE) $(MAKESILENT) -f src/usuario_registrado/CMakeFiles/usuario_registrado.dir/build.make src/usuario_registrado/CMakeFiles/usuario_registrado.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/usuario_registrado/CMakeFiles/usuario_registrado.dir/build.make src/usuario_registrado/CMakeFiles/usuario_registrado.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=9,10 "Built target usuario_registrado"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=13,14 "Built target usuario_registrado"
 .PHONY : src/usuario_registrado/CMakeFiles/usuario_registrado.dir/all
 
 # Build rule for subdir invocation for target.
@@ -343,7 +366,7 @@ src/coordinador_cursos/CMakeFiles/coordinador_cursos.dir/clean:
 src/lista_cursos/CMakeFiles/lista_cursos.dir/all: src/curso/CMakeFiles/curso.dir/all
 	$(MAKE) $(MAKESILENT) -f src/lista_cursos/CMakeFiles/lista_cursos.dir/build.make src/lista_cursos/CMakeFiles/lista_cursos.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/lista_cursos/CMakeFiles/lista_cursos.dir/build.make src/lista_cursos/CMakeFiles/lista_cursos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=5,6 "Built target lista_cursos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=9,10 "Built target lista_cursos"
 .PHONY : src/lista_cursos/CMakeFiles/lista_cursos.dir/all
 
 # Build rule for subdir invocation for target.
@@ -362,6 +385,60 @@ lista_cursos: src/lista_cursos/CMakeFiles/lista_cursos.dir/rule
 src/lista_cursos/CMakeFiles/lista_cursos.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/lista_cursos/CMakeFiles/lista_cursos.dir/build.make src/lista_cursos/CMakeFiles/lista_cursos.dir/clean
 .PHONY : src/lista_cursos/CMakeFiles/lista_cursos.dir/clean
+
+#=============================================================================
+# Target rules for target src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir
+
+# All Build rule for target.
+src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=7,8 "Built target gestor_cursos_main"
+.PHONY : src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/all
+
+# Build rule for subdir invocation for target.
+src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles 0
+.PHONY : src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/rule
+
+# Convenience name for target.
+gestor_cursos_main: src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/rule
+
+.PHONY : gestor_cursos_main
+
+# clean rule for target.
+src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/clean
+.PHONY : src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/clean
+
+#=============================================================================
+# Target rules for target src/gestor_cursos/CMakeFiles/gestor_cursos.dir
+
+# All Build rule for target.
+src/gestor_cursos/CMakeFiles/gestor_cursos.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles --progress-num=5,6 "Built target gestor_cursos"
+.PHONY : src/gestor_cursos/CMakeFiles/gestor_cursos.dir/all
+
+# Build rule for subdir invocation for target.
+src/gestor_cursos/CMakeFiles/gestor_cursos.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/gestor_cursos/CMakeFiles/gestor_cursos.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/naibu3/ingInformatica/IS/Project-106/build/CMakeFiles 0
+.PHONY : src/gestor_cursos/CMakeFiles/gestor_cursos.dir/rule
+
+# Convenience name for target.
+gestor_cursos: src/gestor_cursos/CMakeFiles/gestor_cursos.dir/rule
+
+.PHONY : gestor_cursos
+
+# clean rule for target.
+src/gestor_cursos/CMakeFiles/gestor_cursos.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos.dir/clean
+.PHONY : src/gestor_cursos/CMakeFiles/gestor_cursos.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

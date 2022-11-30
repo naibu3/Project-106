@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/CMakeLists.txt"
   "../src/coordinador_cursos/CMakeLists.txt"
   "../src/curso/CMakeLists.txt"
+  "../src/gestor_cursos/CMakeLists.txt"
   "../src/lista_cursos/CMakeLists.txt"
   "../src/usuario/CMakeLists.txt"
   "../src/usuario_registrado/CMakeLists.txt"
@@ -50,6 +51,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/usuario_registrado/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/coordinador_cursos/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/lista_cursos/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/gestor_cursos/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -60,4 +62,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/usuario_registrado/CMakeFiles/usuario_registrado.dir/DependInfo.cmake"
   "src/coordinador_cursos/CMakeFiles/coordinador_cursos.dir/DependInfo.cmake"
   "src/lista_cursos/CMakeFiles/lista_cursos.dir/DependInfo.cmake"
+  "src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/DependInfo.cmake"
+  "src/gestor_cursos/CMakeFiles/gestor_cursos.dir/DependInfo.cmake"
   )

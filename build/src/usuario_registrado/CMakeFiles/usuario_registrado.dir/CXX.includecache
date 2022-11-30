@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 ../src/usuario/usuario.h
+string
+-
 
 /home/naibu3/ingInformatica/IS/Project-106/src/usuario_registrado/usuario_registrado.cc
 usuario_registrado.h

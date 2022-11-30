@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/gestor_cursos_main.dir/gestor_cursos_main.cc.o -o gestor_cursos_main 

@@ -24,6 +24,11 @@
 /home/naibu3/ingInformatica/IS/Project-106/build/src/lista_cursos/CMakeFiles/test.dir
 /home/naibu3/ingInformatica/IS/Project-106/build/src/lista_cursos/CMakeFiles/rebuild_cache.dir
 /home/naibu3/ingInformatica/IS/Project-106/build/src/lista_cursos/CMakeFiles/lista_cursos.dir
+/home/naibu3/ingInformatica/IS/Project-106/build/src/gestor_cursos/CMakeFiles/rebuild_cache.dir
+/home/naibu3/ingInformatica/IS/Project-106/build/src/gestor_cursos/CMakeFiles/edit_cache.dir
+/home/naibu3/ingInformatica/IS/Project-106/build/src/gestor_cursos/CMakeFiles/test.dir
+/home/naibu3/ingInformatica/IS/Project-106/build/src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir
+/home/naibu3/ingInformatica/IS/Project-106/build/src/gestor_cursos/CMakeFiles/gestor_cursos.dir
 /home/naibu3/ingInformatica/IS/Project-106/build/tests/CMakeFiles/rebuild_cache.dir
 /home/naibu3/ingInformatica/IS/Project-106/build/tests/CMakeFiles/edit_cache.dir
 /home/naibu3/ingInformatica/IS/Project-106/build/tests/CMakeFiles/test.dir

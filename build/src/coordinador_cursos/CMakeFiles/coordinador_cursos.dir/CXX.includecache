@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/naibu3/ingInformatica/IS/Project-106/src/coordinador_cursos/coordinador_cursos.cc
+coordinador_cursos.h
+/home/naibu3/ingInformatica/IS/Project-106/src/coordinador_cursos/coordinador_cursos.h
+
+/home/naibu3/ingInformatica/IS/Project-106/src/coordinador_cursos/coordinador_cursos.h
+

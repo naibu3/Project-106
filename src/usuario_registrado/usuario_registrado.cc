@@ -1,5 +1,7 @@
-#include "curso.h"
+/*
+usuario.cc
 
-#include<iostream>
-#include <string>
+Clase que representa al usuario no registrado.
+*/
 
+#include "usuario_registrado.h"

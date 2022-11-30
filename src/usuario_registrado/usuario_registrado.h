@@ -1,9 +1,20 @@
-#ifndef USR_REG_H
-#define USR_REG_H
-#include <string>
-class Usr_registrado{
+/*
+usuario.h
+
+Clase que representa al usuario no registrado.
+*/
+
+#ifndef __USUARIO_REGISTRADO_H__
+#define __USUARIO_REGISTRADO_H__
+
+#include "usuario.h"
+
+class Usuario_registrado : public Usuario {
+
     private:
+
     public:
+
 };
 
 #endif

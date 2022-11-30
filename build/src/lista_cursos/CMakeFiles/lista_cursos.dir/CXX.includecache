@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/naibu3/ingInformatica/IS/Project-106/src/lista_cursos/lista_cursos.cc
+lista_cursos.h
+/home/naibu3/ingInformatica/IS/Project-106/src/lista_cursos/lista_cursos.h
+
+/home/naibu3/ingInformatica/IS/Project-106/src/lista_cursos/lista_cursos.h
+

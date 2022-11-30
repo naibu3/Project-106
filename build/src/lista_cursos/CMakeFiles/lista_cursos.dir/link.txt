@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblista_cursos.a CMakeFiles/lista_cursos.dir/lista_cursos.cc.o
+/usr/bin/ranlib liblista_cursos.a

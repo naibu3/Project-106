@@ -1,4 +1,4 @@
-add_library(curso curso.cc)
+add_library(curso curso.cc curso.h)
 target_include_directories(curso PUBLIC
                           ${CMAKE_CURRENT_LIST_DIR})
 

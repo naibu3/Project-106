@@ -8,6 +8,8 @@ Clase que representa un curso de extension
 #define __CURSO_H__
 
 #include <string>
+#include <list>
+#include "usuario_registrado.h"
 
 class Curso{
 
@@ -15,6 +17,7 @@ class Curso{
 
         std::string name_;
         std::string id_;
+        std::list<Usuario_registrado> lista_inscritos_;
 
     public:
 
@@ -27,6 +30,8 @@ class Curso{
 
         inline std::string get_name(){return name_;}
         inline std::string get_id(){return id_;}
+
+        void inscribir_usuario(Usuario_registrado usuario);
 };
 
 #endif

@@ -13,7 +13,7 @@ Clase que representa al usuario no registrado.
 #include <string>
 #include <list>
 
-class Usuario_registrado : public Lista_cursos {
+class Usuario_registrado : public Usuario {
 
     private:
         std::string username_, email_;

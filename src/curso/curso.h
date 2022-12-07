@@ -31,7 +31,7 @@ class Curso{
         inline std::string get_name(){return name_;}
         inline std::string get_id(){return id_;}
 
-        void inscribir_usuario(Usuario_registrado usuario);
+        bool inscribir_usuario(Usuario_registrado usuario);
 };
 
 #endif

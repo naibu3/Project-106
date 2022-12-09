@@ -9,6 +9,7 @@ Clase que representa al usuario no registrado.
 
 #include "usuario.h"
 #include "lista_cursos.h"
+#include "curso.h"
 
 #include <string>
 #include <list>
@@ -29,7 +30,7 @@ class Usuario_registrado : public Usuario {
         inline std::string get_estudios(){return estudios_;}
     //std::string set_estudios();
     
-        bool inscribirse(Curso c, std::list<Curso> lista_cursos_);
+        void inscribirse(Curso c, std::list<Curso> lista_cursos_);
 
 };
 

@@ -1,7 +1,7 @@
 /*
-usuario.h
+usuario_registrado.h
 
-Clase que representa al usuario no registrado.
+Clase que representa al usuario registrado.
 */
 
 #ifndef __USUARIO_REGISTRADO_H__
@@ -13,6 +13,7 @@ Clase que representa al usuario no registrado.
 
 #include <string>
 #include <list>
+#include <iostream>
 
 class Usuario_registrado : public Usuario {
 
@@ -30,7 +31,7 @@ class Usuario_registrado : public Usuario {
         inline std::string get_estudios(){return estudios_;}
     //std::string set_estudios();
     
-        void inscribirse(Curso c, std::list<Curso> lista_cursos_);
+        void inscribirse(Curso c, std::list<Curso> lista_cursos_); 
 
 };
 

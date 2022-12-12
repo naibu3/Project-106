@@ -12,11 +12,15 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src/lista_cursos"
   "../src/curso"
+  "../src/usuario_registrado"
+  "../src/usuario"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/naibu3/ingInformatica/IS/Project-106/build/src/curso/CMakeFiles/curso.dir/DependInfo.cmake"
+  "/home/naibu3/ingInformatica/IS/Project-106/build/src/usuario_registrado/CMakeFiles/usuario_registrado.dir/DependInfo.cmake"
+  "/home/naibu3/ingInformatica/IS/Project-106/build/src/usuario/CMakeFiles/usuario.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

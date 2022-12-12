@@ -7,4 +7,14 @@
 #IncludeRegexTransform: 
 
 /home/naibu3/ingInformatica/IS/Project-106/src/usuario/usuario.cc
+usuario.h
+/home/naibu3/ingInformatica/IS/Project-106/src/usuario/usuario.h
+
+/home/naibu3/ingInformatica/IS/Project-106/src/usuario/usuario.h
+string
+-
+time.h
+-
+stdlib.h
+-
 

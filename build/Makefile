@@ -205,32 +205,6 @@ lista_cursos/fast:
 	$(MAKE) $(MAKESILENT) -f src/lista_cursos/CMakeFiles/lista_cursos.dir/build.make src/lista_cursos/CMakeFiles/lista_cursos.dir/build
 .PHONY : lista_cursos/fast
 
-#=============================================================================
-# Target rules for targets named gestor_cursos_main
-
-# Build rule for target.
-gestor_cursos_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gestor_cursos_main
-.PHONY : gestor_cursos_main
-
-# fast build rule for target.
-gestor_cursos_main/fast:
-	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos_main.dir/build
-.PHONY : gestor_cursos_main/fast
-
-#=============================================================================
-# Target rules for targets named gestor_cursos
-
-# Build rule for target.
-gestor_cursos: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gestor_cursos
-.PHONY : gestor_cursos
-
-# fast build rule for target.
-gestor_cursos/fast:
-	$(MAKE) $(MAKESILENT) -f src/gestor_cursos/CMakeFiles/gestor_cursos.dir/build.make src/gestor_cursos/CMakeFiles/gestor_cursos.dir/build
-.PHONY : gestor_cursos/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,8 +216,6 @@ help:
 	@echo "... test"
 	@echo "... coordinador_cursos"
 	@echo "... curso"
-	@echo "... gestor_cursos"
-	@echo "... gestor_cursos_main"
 	@echo "... lista_cursos"
 	@echo "... usuario"
 	@echo "... usuario_registrado"

@@ -67,8 +67,3 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/naibu3/ingInformatica/IS/Project-106/build/src/lista_cursos/cmake_install.cmake")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/naibu3/ingInformatica/IS/Project-106/build/src/gestor_cursos/cmake_install.cmake")
-endif()
-

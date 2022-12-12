@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcurso.a CMakeFiles/curso.dir/curso.cc.o
-/usr/bin/ranlib libcurso.a

@@ -10,7 +10,6 @@ Clase que representa al usuario registrado.
 #include "usuario.h"
 #include "lista_cursos.h"
 #include "curso.h"
-
 #include <string>
 #include <list>
 #include <iostream>
@@ -24,12 +23,19 @@ class Usuario_registrado : public Usuario {
 
     public:
         Usuario_registrado(std::string username,
-            std::string email, std::string estudios);
+                            std::string email,
+                            std::string estudios){
+                                
+                                username_=username;
+                                email_=email;
+                                estudios_=estudios;
+                            }
 
         inline std::string get_username(){return username_;}
         inline std::string get_email(){return email_;}
         inline std::string get_estudios(){return estudios_;}
-    //std::string set_estudios();
+        
+        //std::string set_estudios();
     
         void inscribirse(Curso c, std::list<Curso> lista_cursos_); 
 

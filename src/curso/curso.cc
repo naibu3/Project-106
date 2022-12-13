@@ -5,8 +5,7 @@ Clase que representa un curso de extension
 */
 
 #include "curso.h"
-#include "usuario_registrado.h"
-
+/*
 bool Curso::inscribir_usuario(Usuario_registrado user){
     std::list<Usuario_registrado>::iterator it;
     for(it = lista_inscritos_.begin(); it != lista_inscritos_.end(); it++){
@@ -58,3 +57,4 @@ bool Curso::inscribir_usuario(Usuario_registrado user){
     return true;
 }
 
+*/

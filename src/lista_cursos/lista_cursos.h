@@ -9,6 +9,7 @@ para su manejo.
 #define __LISTA_CURSOS_H__
 
 #include <list>
+#include <fstream>
 #include "curso.h"
 
 class Lista_cursos{
@@ -27,7 +28,9 @@ class Lista_cursos{
         bool remove_curso(std::string id);
         bool remove_curso(Curso curso);
 
-        
+        bool escribir_datos();
+        bool leer_datos();
+
 };
 
 #endif

@@ -18,7 +18,6 @@ Clase que representa un curso de extension
 
 class Curso{
 
-
     private:
 
         std::string name_;
@@ -38,10 +37,18 @@ class Curso{
 
     public:
 
-
-        Curso(std::string id,std::string name, int year,std::string month_,int day_,
-        std::string ponente_,std::string estudio_,std::string duracion_,
-        std::string descripcion_, std::string lugar_, std::string aula_, int aforo_){
+        Curso(std::string id,
+                std::string name,
+                int year,
+                std::string month,
+                int day,
+                std::string ponente,
+                std::string estudio,
+                std::string duracion,
+                std::string descripcion,
+                std::string lugar,
+                std::string aula,
+                int aforo){
                 
             id_=id;
             name_=name;
@@ -50,7 +57,7 @@ class Curso{
             day_=day;
             ponente_=ponente;
             estudio_=estudio;
-            descripción_=descripción;
+            descripcion_=descripcion;
             lugar_=lugar;
             aula_=aula;
             aforo_=aforo;
@@ -62,7 +69,6 @@ class Curso{
         inline std::string get_month(){return month_;}
         inline int get_year(){return year_;}
         inline int get_day(){return day_;}
-
 
         bool inscribir_usuario(Usuario_registrado user);
 };

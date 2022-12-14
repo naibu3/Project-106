@@ -7,7 +7,7 @@ Clase que representa un curso de extension
 #ifndef _CURSO_H_
 #define _CURSO_H_
 
-//#include "usuario_registrado.h"
+#include "usuario.h"
 
 #include <string>
 #include <list>
@@ -33,7 +33,7 @@ class Curso{
         std::string aula_;
         int aforo_;
 
-        //std::list<Usuario_registrado> lista_inscritos_;
+        std::list<Usuario> lista_inscritos_;
 
     public:
 
@@ -70,7 +70,7 @@ class Curso{
         inline int get_year(){return year_;}
         inline int get_day(){return day_;}
 
-        //bool inscribir_usuario(Usuario_registrado user);
+        bool inscribir_usuario(Usuario user);
 };
 
 #endif

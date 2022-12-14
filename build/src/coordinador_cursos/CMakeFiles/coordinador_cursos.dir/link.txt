@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcoordinador_cursos.a CMakeFiles/coordinador_cursos.dir/coordinador_cursos.cc.o
+/usr/bin/ranlib libcoordinador_cursos.a

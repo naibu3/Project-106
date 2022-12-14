@@ -1,6 +1,7 @@
 #include "lista_cursos.h"
 #include <string>
 #include <iostream>
+#include <fstream>
 
 //PARA COMPATIBILIDAD AL LIMPIAR PANTALLA ENTRE WIN Y LINUS
 #ifdef _WIN32
@@ -18,9 +19,22 @@ void limpiar_pantalla()
 
 void imprimir_logos(){
 
-    std::cout<<"                  %@@%:.                "<<std::endl;
-    std::cout<<"              .%888X8888S..             "<<std::endl;
-    std::cout<<"          .t@88X88 @ 888X88@t;.         "<<std::endl;
+    std::string nombreArchivo = "banner.txt";
+    std::ifstream archivo(nombreArchivo);
+
+    if (!archivo.is_open())
+    {
+        std::cout <<"Error al abrir " << nombreArchivo << "\n";
+        exit(EXIT_FAILURE);
+    }
+
+    std::string linea;
+    while (getline(archivo, linea)) {
+
+        std::cout << linea << std::endl;
+    }
+
+    archivo.close();
 }
 
 void imprimir_menu(){
@@ -31,12 +45,21 @@ void imprimir_menu(){
     std::cout<<"Inserte eleccion y pulse intro: ";
 }
 
+void pulsa_intro(){
+    char a;
+    while(a = std::cin.get()){
+        if(a == '\n'){
+            break;
+        }
+    }
+}
+
 int main()
 {
     limpiar_pantalla();
 
     imprimir_logos();
-
+    pulsa_intro();
     //Lista_cursos lista_cursos_extension;
 
     //Menu ppal
@@ -48,19 +71,23 @@ int main()
 
         switch(option){
             case 1:{
+                //MOSTRAR LISTA CURSOS
                 break;
             }
-
             case 9:{
+                //SALIR
                 return 0;
             }
 
             default:{
+                //LA OPCION NO EXISTE O ES INVALIDA
+                std::cout<<"[ ERROR ] Selecciona una opcion!"<<std::endl;
+                std::cout<<"(Pulse INTRO)"<<std::endl;
+                pulsa_intro();
                 break;
             }
 
         }
     }
-
     return 0;
 }

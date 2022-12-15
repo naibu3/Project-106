@@ -69,6 +69,11 @@ class Curso{
         inline std::string get_month(){return month_;}
         inline int get_year(){return year_;}
         inline int get_day(){return day_;}
+        inline std::string get_ponente(){return ponente_;}
+        inline std::string get_descripcion(){return descripcion_;}
+        inline std::string get_lugar(){return lugar_;}
+        inline std::string get_aula(){return aula_;}
+        inline int get_aforo(){return aforo_;}
 
         bool inscribir_usuario(Usuario user);
 };

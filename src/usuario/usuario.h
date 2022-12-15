@@ -16,9 +16,19 @@ class Usuario{
     private:
 
         std::string id_;
+        int privilegios_;
 
+    protected:
+        
+        inline void set_privilegios(int n){privilegios_=n;}
 
     public:
+
+        Usuario(){
+            set_privilegios(0);
+        }
+        inline int get_privilegios(){return privilegios_;}
+
         std::string set_id();
         inline std::string get_id(){return id_;}
 };

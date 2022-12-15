@@ -24,11 +24,12 @@ class Usuario_registrado : public Usuario {
     public:
         Usuario_registrado(std::string username,
                             std::string email,
-                            std::string estudios){
+                            std::string estudios):Usuario(){
                                 
                                 username_=username;
                                 email_=email;
                                 estudios_=estudios;
+                                set_privilegios(1);
                             }
 
         inline std::string get_username(){return username_;}

@@ -39,7 +39,7 @@ class Usuario_registrado : public Usuario {
 
         //std::string set_estudios();
     
-        void inscribirse(Curso c, std::list<Curso> lista_cursos_); 
+        bool inscribirse(Curso c); 
 
 };
 

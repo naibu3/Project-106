@@ -59,6 +59,12 @@ bool Lista_cursos::escribir_datos(){
             file << it->get_lugar()<<"\n";
             file << it->get_aula()<<"\n";
             file << it->get_aforo()<<"\n";
+            
+            //Guardar usuarios
+            /*std::list<Usuario>::iterator user;
+            for( user = (it->get_lista) ;;){
+
+            }*/
             file << "\n";
         }
 

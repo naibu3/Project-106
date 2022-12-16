@@ -1,0 +1,25 @@
+000
+Curso prueba
+2023
+marzo
+10
+Alex
+Grado
+15 dias
+*descripcion*
+edificio2
+aula3
+20
+
+001
+Curso prueba2
+2022
+abril
+10
+Alejandro
+No
+67 dias
+*descripcion*
+edificio34
+aula2
+23

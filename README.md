@@ -10,8 +10,8 @@ Consiste en un sistema de gestión de inscripciones para el servicio de cursos d
 
 Es posible instalar la aplicación de varias formas:
 
-    - Instalador (actualmente solo para linux)
-    - Compilando manualmente con cmake
+- Instalador (actualmente solo para linux)
+- Compilando manualmente con cmake
 
 En ambos casos se debe clonar este repositorio (con git):
 
@@ -19,8 +19,8 @@ En ambos casos se debe clonar este repositorio (con git):
 
 Además se requiere tener instalados los siguientes paquetes:
 
-    - cmake
-    - make
+- cmake
+- make
 
 ### Instalacion con instalador (solo linux)
 

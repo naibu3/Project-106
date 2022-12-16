@@ -1,6 +1,7 @@
 #include "lista_cursos.h"
 #include "curso.h"
 #include "usuario_registrado.h"
+#include "coordinador_cursos.h"
 #include "usuario.h"
 #include <map>
 #include <string>
@@ -112,7 +113,7 @@ int main()
     //std::list<Coordinador_cursos> lista_coordinadores_cursos;
     
     std::map<std::string, Usuario_registrado> lista_usuarios_registrados;
-    //std::map<Coordinador_cursos> lista_coordinadores_recursos;
+    std::map<std::string, Coordinador_cursos> lista_admins;
 
     std::string id_user;
     int privilegios_user;
@@ -159,6 +160,7 @@ int main()
             }
         }
     }
+    std::cout<<"Introduce tu id: "; std::cin>>id_user; std::cout<<std::endl;
 
     //CARGA DE USUARIOS
     if(privilegios_user==1){
@@ -182,6 +184,30 @@ int main()
 
                 Usuario_registrado user_it(username, email, estudios);
                 lista_usuarios_registrados.insert(std::pair<std::string, Usuario_registrado>(user_it.get_id(), user_it));
+            }
+        }
+    }
+    else if(privilegios_user==2){
+        
+        std::ifstream fichero_admin;
+        fichero_admin.open("lista_admins.txt");
+    
+        if(fichero_admin.is_open()){
+
+            std::string username;
+            std::string email;
+            std::string estudios;
+
+            std::string linea;
+            while(!fichero_admin.eof()){
+                
+                getline(fichero_admin, linea); username=linea;
+                getline(fichero_admin, linea); email=linea;
+                getline(fichero_admin, linea); estudios=linea;
+                getline(fichero_admin, linea);
+
+                Coordinador_cursos coord_it(username, email, estudios);
+                lista_admins.insert(std::pair<std::string, Coordinador_cursos>(coord_it.get_id(), coord_it));
             }
         }
     }

@@ -23,7 +23,6 @@ class Lista_cursos{
         inline std::list<Curso> get_list(){return lista_cursos_;}
 
         bool add_curso(Curso curso);
-        bool add_curso(std::string id);
 
         bool remove_curso(std::string id);
         bool remove_curso(Curso curso);

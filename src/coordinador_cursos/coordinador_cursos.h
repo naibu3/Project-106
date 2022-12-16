@@ -8,6 +8,7 @@ Clase que representa al coordinador de cursos, quien gestiona los cursos.
 #define __COORDINADOR_CURSOS_H__
 
 #include "usuario_registrado.h"
+#include "lista_cursos.h"
 #include "curso.h"
 #include <string>
 #include <list>
@@ -27,9 +28,9 @@ class Coordinador_cursos : public Usuario_registrado {
                 set_privilegios(2);
         }
 
-        bool crear_curso();
-        bool borrar_curso();
-        bool modificar_curso();
+        void crear_curso(Lista_cursos &lista);
+        void borrar_curso(Lista_cursos &lista, Curso curso);
+        void modificar_curso(Curso &curso);
         
 };
 

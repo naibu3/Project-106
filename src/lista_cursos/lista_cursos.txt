@@ -1,7 +1,7 @@
 000
 Curso prueba
 2023
-marzo
+3
 10
 Alex
 Grado
@@ -14,7 +14,7 @@ aula3
 001
 Curso prueba2
 2022
-abril
+4
 10
 Alejandro
 No

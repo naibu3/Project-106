@@ -8,6 +8,7 @@ int main()
     bool exit=false;
     bool error=false;
     std::string option;
+    int noption;
     Lista_cursos lista_cursos_extension;
 
     std::string id_user;
@@ -33,7 +34,6 @@ int main()
         imprimir_menu_login();
 
         std::cin>>option;
-        std::cin.ignore();
         switch(std::stoi(option)){
             case 1:
                 privilegios_user=std::stoi(option);
@@ -64,7 +64,6 @@ int main()
     }
     std::cout<<"Introduce tu id: "; 
     std::cin>>id_user; 
-    std::cin.ignore;
     std::cout<<std::endl;
 
     //CARGA DE USUARIOS

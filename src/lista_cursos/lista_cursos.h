@@ -28,6 +28,8 @@ class Lista_cursos{
 
         bool add_curso(Curso curso);
 
+        Curso get_curso(std::string id);
+
         bool remove_curso(std::string id);
         bool remove_curso(Curso curso);
 

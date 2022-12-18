@@ -77,17 +77,18 @@ class Curso{
 
         bool inscribir_usuario(std::string id);
     
-        std::string set_id();
-        std::string set_name();
-        std::string set estudio();
-        int set_month();
-        int set_year();
-        int set_day();
-        std::string set_ponente();
-        std::string set_descripcion();
-        std::string set_lugar();
-        std::string set_aula();
-        int set_aforo();
+        inline void set_id(std::string id){id_=id;}
+        inline void set_name(std::string name){name_=name;}
+        inline void set_estudio(std::string estudio){estudio_=estudio;}
+        inline void set_duracion(std::string duracion){duracion_=duracion;}
+        inline void set_month(int month){month_=month;}
+        inline void set_year(int year){year_=year;}
+        inline void set_day(int day){day_=day;}
+        inline void set_ponente(std::string ponente){ponente_=ponente;}
+        inline void set_descripcion(std::string descripcion){descripcion_=descripcion;}
+        inline void set_lugar(std::string lugar){lugar_=lugar;}
+        inline void set_aula(std::string aula){aula_=aula;}
+        inline void set_aforo(int aforo){aforo_=aforo;}
 };
 
 #endif

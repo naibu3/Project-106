@@ -4,6 +4,7 @@ usuario.cc
 Clase que representa al usuario registrado.
 */
 
+#include <chrono>
 #include "usuario_registrado.h"
 
 /*Función que se ejecuta si todos los requisitos del método inscribir_usuario()
@@ -25,12 +26,14 @@ bool Usuario_registrado::inscribirse(Curso c){
     }
 
     //COMPROBAR SI EL CURSO YA HA COMENZADO
-    auto now = chrono::system_clock::now();
-    time_t end_time = chrono::system_clock::to_time_t(now);
+    auto now = std::chrono::system_clock::now();
+    time_t end_time = std::chrono::system_clock::to_time_t(now);
+
     std::string ahora = ctime(&end_time); //fecha actual
     std::string ano_actual = ahora.substr(ahora.length()-5,4); //comprobación de año
     int actual_year = stoi(ano_actual);
-    if(actual_year>year){
+    
+    if(actual_year>c.get_year()){
         printf("El curso ya ha comenzado\n");
         return false;
     }
@@ -41,7 +44,7 @@ bool Usuario_registrado::inscribirse(Curso c){
         if(mes_actual == diccionario_meses[i]){
             nmes_actual = i+1;
         }
-        else if(month == diccionario_meses[i]){
+        else if(c.get_month() == i+1){
             nmes_curso = i+1;
         }
     }

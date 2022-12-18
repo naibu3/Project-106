@@ -13,6 +13,9 @@ Clase que representa al usuario registrado.
 #include <string>
 #include <list>
 #include <iostream>
+#include <chrono>
+#include <stdio.h>
+
 
 class Usuario_registrado : public Usuario {
 

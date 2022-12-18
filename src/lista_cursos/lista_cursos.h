@@ -9,7 +9,10 @@ para su manejo.
 #define __LISTA_CURSOS_H__
 
 #include <list>
-#include <fstream>
+#include <iostream>
+#include <string>
+#include <stdio.h>
+
 #include "curso.h"
 
 class Lista_cursos{

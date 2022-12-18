@@ -33,35 +33,39 @@ int main()
         imprimir_menu_login();
 
         std::cin>>option;
+        std::cin.ignore();
         switch(std::stoi(option)){
-            case 1:{
+            case 1:
                 privilegios_user=std::stoi(option);
                 exit=true;
                 break;
-            }
-            case 2:{
+            
+            case 2:
                 privilegios_user=std::stoi(option);
                 exit=true;
                 break;
-            }
-            case 3:{
+            
+            case 3:
                 std::cout<<std::endl<<"Aun no disponible, pulse intro."<<std::endl;
                 pulsa_intro();
                 break;
-            }
-            case 9:{
+            
+            case 9:
                 limpiar_pantalla();
                 return 0;
                 break;
-            }
-            default:{
+            
+            default:
                 privilegios_user=0;
                 exit=true;
                 error=true;
-            }
+            
         }
     }
-    std::cout<<"Introduce tu id: "; std::cin>>id_user; std::cout<<std::endl;
+    std::cout<<"Introduce tu id: "; 
+    std::cin>>id_user; 
+    std::cin.ignore;
+    std::cout<<std::endl;
 
     //CARGA DE USUARIOS
     if(privilegios_user==1){
@@ -79,20 +83,22 @@ int main()
                     return 1;
                 }
 
-                getline(fichero_usuarios, linea);
+                std::getline(fichero_usuarios, linea);
                 if(linea == id_user){
-                    getline(fichero_usuarios, linea); username=linea;
-                    getline(fichero_usuarios, linea); email=linea;
-                    getline(fichero_usuarios, linea); estudios=linea;
-                    getline(fichero_usuarios, linea);
+                    std::getline(fichero_usuarios, linea); username=linea;
+                    std::getline(fichero_usuarios, linea); email=linea;
+                    std::getline(fichero_usuarios, linea); estudios=linea;
+                    std::getline(fichero_usuarios, linea);
 
                     #define REGISTRADO
                     break;
                 }
                 else{
                     
-                    getline(fichero_usuarios, linea); getline(fichero_usuarios, linea);
-                    getline(fichero_usuarios, linea); getline(fichero_usuarios, linea);
+                    std::getline(fichero_usuarios, linea); 
+                    std::getline(fichero_usuarios, linea);
+                    std::getline(fichero_usuarios, linea); 
+                    std::getline(fichero_usuarios, linea);
                 }
             }
         }
@@ -112,22 +118,22 @@ int main()
                     return 1;
                 }
 
-                getline(fichero_admin, linea);
+                std::getline(fichero_admin, linea);
                 if(linea == id_user){
-                    getline(fichero_admin, linea); username=linea;
-                    getline(fichero_admin, linea); email=linea;
-                    getline(fichero_admin, linea); estudios=linea;
-                    getline(fichero_admin, linea);
+                    std::getline(fichero_admin, linea); username=linea;
+                    std::getline(fichero_admin, linea); email=linea;
+                    std::getline(fichero_admin, linea); estudios=linea;
+                    std::getline(fichero_admin, linea);
 
                     #define COORDINADOR
                     break;
                 }
                 else{
                     
-                    getline(fichero_admin, linea);
-                    getline(fichero_admin, linea);
-                    getline(fichero_admin, linea);
-                    getline(fichero_admin, linea);
+                    std::getline(fichero_admin, linea);
+                    std::getline(fichero_admin, linea);
+                    std::getline(fichero_admin, linea);
+                    std::getline(fichero_admin, linea);
                 }
             }
         }
@@ -163,12 +169,12 @@ int main()
 
         std::cin>>option;
         switch(std::stoi(option)){
-            case 1:{
+            case 1:
                 //MOSTRAR LISTA CURSOS______________________________________________________________________
                 menu_lista_cursos(&lista_cursos_extension, usuario);
                 break;
-            }
-            case 2:{
+            
+            case 2:
                 //VER MIS CURSOS______________________________________________________________________
                 if(privilegios_user>1){
                     menu_mis_cursos(usuario);
@@ -178,17 +184,17 @@ int main()
                     std::cout<<"Pulsa INTRO"<<std::endl;
                 }
                 break;
-            }
-            case 9:{
+            
+            case 9:
                 //SALIR_____________________________________________________________________________________
                 limpiar_pantalla();
                 return 0;
-            }
+            
 
-            default:{
+            default:
                 //LA OPCION NO EXISTE O ES INVALIDA___________________________________________________________
                 error=true;
-            }
+            
         }
     }
 

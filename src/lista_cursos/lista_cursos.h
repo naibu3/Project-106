@@ -12,6 +12,7 @@ para su manejo.
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <fstream>
 
 #include "curso.h"
 

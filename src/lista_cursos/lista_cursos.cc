@@ -49,23 +49,24 @@ bool Lista_cursos::escribir_datos(){
         std::list<Curso>::iterator it;
         for(it = lista_cursos_.begin(); it != lista_cursos_.end(); it++){
 
-            file << it->get_name()<<"\n";
-            file << it->get_year()<<"\n";
-            file << it->get_month()<<"\n";
-            file << it->get_day()<<"\n";
-            file << it->get_ponente()<<"\n";
-            file << it->get_estudio()<<"\n";
-            file << it->get_descripcion()<<"\n";
-            file << it->get_lugar()<<"\n";
-            file << it->get_aula()<<"\n";
-            file << it->get_aforo()<<"\n";
+            std::file <<it->get_id()<<"\n";
+            std::file <<it->get_name()<<"\n";
+            std::file << it->get_year()<<"\n";
+            std::file << it->get_month()<<"\n";
+            std::file << it->get_day()<<"\n";
+            std::file << it->get_ponente()<<"\n";
+            std::file << it->get_estudio()<<"\n";
+            std::file << it->get_descripcion()<<"\n";
+            std::file << it->get_lugar()<<"\n";
+            std::file << it->get_aula()<<"\n";
+            std::file << it->get_aforo()<<"\n";
             
             //Guardar usuarios
             /*std::list<Usuario>::iterator user;
             for( user = (it->get_lista) ;;){
 
             }*/
-            file << "\n";
+            std::file << "\n";
         }
 
         file.close();
@@ -87,19 +88,19 @@ bool Lista_cursos::leer_datos(){
         std::string linea;
         while(!file.eof()){
 
-            getline(file, linea); std::string id=linea;
-            getline(file, linea); std::string name=linea;
-            getline(file, linea); int year=std::stoi(linea);
-            getline(file, linea); std::string month=linea;
-            getline(file, linea); int day=std::stoi(linea);
-            getline(file, linea); std::string ponente=linea;
-            getline(file, linea); std::string estudio=linea;
-            getline(file, linea); std::string duracion=linea;
-            getline(file, linea); std::string descripcion=linea;
-            getline(file, linea); std::string lugar=linea;
-            getline(file, linea); std::string aula=linea;
-            getline(file, linea); int aforo=stoi(linea);
-            getline(file, linea);
+            std::getline(file, linea); std::string id=linea;
+            std::getline(file, linea); std::string name=linea;
+            std::getline(file, linea); int year=std::stoi(linea);
+            std::getline(file, linea); int month=std::stoi(linea;
+            std::getline(file, linea); int day=std::stoi(linea);
+            std::getline(file, linea); std::string ponente=linea;
+            std::getline(file, linea); std::string estudio=linea;
+            std::getline(file, linea); std::string duracion=linea;
+            std::getline(file, linea); std::string descripcion=linea;
+            std::getline(file, linea); std::string lugar=linea;
+            std::getline(file, linea); std::string aula=linea;
+            std::getline(file, linea); int aforo=std::stoi(linea);
+            std::getline(file, linea);
             
             Curso curso(id, name, year, month, day, ponente, estudio, duracion,
                         descripcion, lugar, aula, aforo);

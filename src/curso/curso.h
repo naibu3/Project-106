@@ -35,18 +35,18 @@ class Curso{
 
     public:
 
-        Curso(std::string id,
-                std::string name,
-                int year,
-                int month,
-                int day,
-                std::string ponente,
-                std::string estudio,
-                std::string duracion,
-                std::string descripcion,
-                std::string lugar,
-                std::string aula,
-                int aforo){
+        Curso(std::string id="",
+                std::string name="",
+                int year=0,
+                int month=0,
+                int day=0,
+                std::string ponente="",
+                std::string estudio="",
+                std::string duracion="",
+                std::string descripcion="",
+                std::string lugar="",
+                std::string aula="",
+                int aforo=0){
                 
             id_=id;
             name_=name;
@@ -76,6 +76,18 @@ class Curso{
         inline std::list<std::string> get_lista_inscritos(){return lista_inscritos_;}
 
         bool inscribir_usuario(std::string id);
+    
+        std::string set_id();
+        std::string set_name();
+        std::string set estudio();
+        int set_month();
+        int set_year();
+        int set_day();
+        std::string set_ponente();
+        std::string set_descripcion();
+        std::string set_lugar();
+        std::string set_aula();
+        int set_aforo();
 };
 
 #endif

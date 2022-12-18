@@ -64,7 +64,7 @@ class Curso{
         inline std::string get_name(){return name_;}
         inline std::string get_id(){return id_;}
         inline std::string get_estudio(){return estudio_;}
-        inline std::string get_month(){return month_;}
+        inline int get_month(){return month_;}
         inline int get_year(){return year_;}
         inline int get_day(){return day_;}
         inline std::string get_ponente(){return ponente_;}

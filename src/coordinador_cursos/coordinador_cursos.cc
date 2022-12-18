@@ -8,7 +8,7 @@ Clase que representa al coordinador de cursos, quien gestiona los cursos.
 
 #define N 200
 
-void crear_curso(Lista_cursos &lista){
+void Coordinador_cursos::crear_curso(Lista_cursos &lista){
 
     std::string str;
     
@@ -294,12 +294,80 @@ void crear_curso(Lista_cursos &lista){
     lista.add_curso(curso);
 }
 
-void borrar_curso(Lista_cursos &lista, Curso curso){
+void Coordinador_cursos::borrar_curso(Lista_cursos &lista, Curso curso){
 
     lista.remove_curso(curso.get_id());    
     curso.~Curso();
 
 }
 
-
-//bool modificar_curso();
+void Coordinador_cursos::modificar_curso(Curso &curso){
+    int opcion=0;
+    while(opcion=0){
+        std::cout<<"Seleccione un campo que quiera modificar"<<endl;
+        std::cout<<"1 = Nombre del curso"<<endl;
+        std::cout<<"2 = Año de inicio"<<std::endl;
+        std::cout<<"3 = Mes de inicio"<<std::endl;
+        std::cout<<"4 = Día de inicio"<<std::endl;
+        std::cout<<"5 = Ponente"<<std::endl;
+        std::cout<<"6 = Estudios requeridos"<<std::endl;
+        std::cout<<"7 = Duración del curso"<<std::endl;
+        std::cout<<"8 = Descripción del curso"<<std::endl;
+        std::cout<<"9 = Lugar del curso"<<std::endl;
+        std::cout<<"10 = Aula"<<std::endl;
+        std::cout<<"11 = Aforo"<<std::endl;
+        std::cin>>opcion;
+        std::cin.ignore();
+        switch(opcion){
+            case 0:
+                again=1;
+                break;
+            case 1:
+                curso.set_name();
+                break;
+            case 2:
+                curso.set_year();
+                break;
+            case 3:
+                curso.set_month();
+                break;
+            case 4:
+                curso.set_day();
+                break;
+            case 5:
+                curso.set_ponente();
+                break;
+            case 6:
+                curso.set_estudio();
+                break;
+            case 7:
+                curso.set_duracion();
+                break;
+            case 8:
+                curso.set_descripcion();
+                break;
+            case 9:
+                curso.set_lugar();
+                break;
+            case 10:
+                curso.set_aula();
+                break;
+            case 11:
+                curso.set_aforo();
+                break;
+            default:
+                opcion=0;
+                break;
+        }
+        char c[];
+        std::cout<<"¿Quieres seguir modificando el curso?[S/N]"<<std::endl;
+        std::cin>>c;
+        std::cin.ignore();
+        if(c=="S"){
+            opcion=0;
+        }
+        else{
+            opcion=1;
+        }
+    }
+}

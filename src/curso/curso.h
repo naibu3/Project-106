@@ -21,7 +21,7 @@ class Curso{
         std::string name_;
         std::string id_;
         int year_;
-        std::string month_;
+        int month_;
         int day_;
         std::string ponente_;
         std::string estudio_;
@@ -38,7 +38,7 @@ class Curso{
         Curso(std::string id,
                 std::string name,
                 int year,
-                std::string month,
+                int month,
                 int day,
                 std::string ponente,
                 std::string estudio,

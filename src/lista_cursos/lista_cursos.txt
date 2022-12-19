@@ -4,7 +4,7 @@ Curso prueba
 3
 10
 Alex
-Grado
+No
 15 dias
 *descripcion*
 edificio2

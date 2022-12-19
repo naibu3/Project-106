@@ -23,8 +23,6 @@ void menu_mis_cursos(Usuario_registrado &user){
             case 9:{
                 //VOLVER
                 exit=true;
-                std::cout<<"[ SALIENDO ] Pulsa INTRO "<<std::endl;
-                pulsa_intro();
                 break;
             }
 
@@ -42,15 +40,15 @@ void menu_mis_cursos(Usuario_registrado &user){
 }
 
 //MENU LISTADO DE CURSOS (Usuario registrado)
-void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado user){
+void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
 
     std::string option2;
     bool exit=false;
 
     while(!exit){
 
-        limpiar_pantalla();
-        imprimir_listado_cursos(lista_cursos -> get_list());
+        //limpiar_pantalla();
+        imprimir_listado_cursos(lista_cursos->get_list());
         imprimir_menu_lista_cursos(user.get_privilegios());
 
         std::cin>>option2;
@@ -62,8 +60,9 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado user){
                     std::string eleccion;
                     std::cout<<"Inserte id del curso y pulse intro: ";
                     std::cin>>eleccion;
-                    if(user.inscribirse(lista_cursos->get_curso(eleccion))){
+                    if(user.inscribirse( lista_cursos->get_curso(eleccion)) ){
                         std::cout<<std::endl<<"Inscrito con exito!"<<std::endl;
+                        pulsa_intro();
                     }
                 }
                 
@@ -89,7 +88,7 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado user){
 }
 
 //MENU LISTADO DE CURSOS (Sobrecarga para el Coordinador de cursos)
-void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos user){
+void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
 
     std::string option2;
     bool exit=false;
@@ -111,16 +110,53 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos user){
             }
             case 2:{
                 //CREAR CURSO
+                user.crear_curso(*lista_cursos);
                 break;
             }
             case 3:{
                 //BORRAR CURSO
+                //user.borrar_curso(*lista_cursos);
                 break;
             }
             case 4:{
                 //MODIFICAR CURSO
+                //user.modificar_curso();
                 break;
             }
+            case 9:{
+                //VOLVER
+                exit=true;
+                std::cout<<"[ SALIENDO ] Pulsa INTRO "<<std::endl;
+                pulsa_intro();
+                break;
+            }
+
+            default:{
+                //LA OPCION NO EXISTE O ES INVALIDA
+                std::cout<<"[ ERROR ] Selecciona una opcion!"<<std::endl;
+                std::cout<<"(Pulse INTRO)"<<std::endl;
+                pulsa_intro();
+                break;
+            }
+        }
+    }
+}
+
+//MENU LISTADO DE CURSOS (Sobrecarga para el Usuario no registrado)
+void menu_lista_cursos(Lista_cursos lista_cursos){
+
+    std::string option2;
+    bool exit=false;
+
+    while(!exit){
+
+        limpiar_pantalla();
+        imprimir_listado_cursos(lista_cursos.get_list());
+        imprimir_menu_lista_cursos(0);
+
+        std::cin>>option2;
+
+        switch(std::stoi(option2)){
             case 9:{
                 //VOLVER
                 exit=true;
@@ -199,7 +235,9 @@ void imprimir_menu_ppal(int privilegios){
 void imprimir_menu_lista_cursos(int privilegios){
 
     std::cout<<std::endl;
-    std::cout<<"    (1) - Inscribirse."<<std::endl;
+    if(privilegios>0){
+        std::cout<<"    (1) - Inscribirse."<<std::endl;
+    }
 
     if(privilegios>1){
         std::cout<<"    (2) - Crear curso."<<std::endl;

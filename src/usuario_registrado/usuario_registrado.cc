@@ -33,10 +33,6 @@ bool Usuario_registrado::inscribirse(Curso c){
     std::string ano_actual = ahora.substr(ahora.length()-5,4); //comprobación de año
     int actual_year = stoi(ano_actual);
     
-    if(actual_year>c.get_year()){
-        printf("El curso ya ha comenzado\n");
-        return false;
-    }
     std::string mes_actual = ahora.substr(4,3); //comprobación de mes
     std::string diccionario_meses[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     int nmes_actual, nmes_curso;
@@ -48,8 +44,13 @@ bool Usuario_registrado::inscribirse(Curso c){
             nmes_curso = i+1;
         }
     }
-    if(nmes_actual>nmes_curso){
-        printf("El curso ya ha comenzado\n");
+
+    if(actual_year>c.get_year()){
+        std::cout<<"El curso ya ha comenzado\n";
+        return false;
+    }
+    else if(nmes_actual>nmes_curso && actual_year==c.get_year()){
+        std::cout<<"El curso ya ha comenzado"<<"\n";
         return false;
     }
 
@@ -58,5 +59,7 @@ bool Usuario_registrado::inscribirse(Curso c){
         printf("Ya estás inscrito!\n");
         return false;
     }
+    cursos_inscritos_.push_back(c);
+
     return true;
 }

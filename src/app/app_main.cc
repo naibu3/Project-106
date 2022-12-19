@@ -57,14 +57,17 @@ int main()
             
             default:
                 privilegios_user=0;
+                #define NOTLOGGED
                 exit=true;
                 error=true;
             
         }
     }
-    std::cout<<"Introduce tu id: "; 
-    std::cin>>id_user; 
-    std::cout<<std::endl;
+    if(privilegios_user>0){
+        std::cout<<"Introduce tu id: "; 
+        std::cin>>id_user; 
+        std::cout<<std::endl;
+    }
 
     //CARGA DE USUARIOS
     if(privilegios_user==1){
@@ -170,12 +173,13 @@ int main()
         switch(std::stoi(option)){
             case 1:
                 //MOSTRAR LISTA CURSOS______________________________________________________________________
-                menu_lista_cursos(&lista_cursos_extension, usuario);
+                if(privilegios_user==0) menu_lista_cursos(lista_cursos_extension);
+                else menu_lista_cursos(&lista_cursos_extension, usuario);
                 break;
             
             case 2:
                 //VER MIS CURSOS______________________________________________________________________
-                if(privilegios_user>1){
+                if(privilegios_user>0){
                     menu_mis_cursos(usuario);
                 }
                 else{

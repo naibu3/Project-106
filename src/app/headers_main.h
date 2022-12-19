@@ -24,4 +24,6 @@ void imprimir_menu_lista_cursos(int privilegios);
 void imprimir_menu_login();
 
 void menu_mis_cursos(Usuario_registrado &user);
-void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado user);
+void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado &user);
+void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos &user);
+void menu_lista_cursos(Lista_cursos lista_cursos);

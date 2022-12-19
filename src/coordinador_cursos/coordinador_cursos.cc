@@ -5,13 +5,67 @@ Clase que representa al coordinador de cursos, quien gestiona los cursos.
 */
 
 #include "coordinador_cursos.h"
+#include <map>
 
 #define N 200
 
 void Coordinador_cursos::crear_curso(Lista_cursos &lista){
 
-    std::string str, name, id, ponente,             estudio, duracion, descripcion, lugar, aula;;
-    int year, month, day,           aforo;
+    std::string str, name, id, ponente, estudio, duracion, descripcion, lugar, aula;;
+    int year, month, day, aforo;
+
+    std::map<int, std::string> lista_estudios = {
+
+        {0, "No"},
+        {1, "Grado en Estudios Ingleses"},
+        {2, "Doble Grado en Turismo y en Traducción e Interpretación"},
+        {3, "Grado en Historia del Arte"},
+        {4, "Grado en Filología Hispánica"},
+        {5, "Grado en Traducción e Interpretación"},
+        {6, "Doble Grado en Historia y en Historia del Arte"},
+        {7, "Doble Grado en Traducción e Interpretación y en Filología Hispánica"},
+        {8, "Grado en Cine y Cultura"},
+        {9, "Grado en Historia"},
+        {10, "Doble Grado en Educación Primaria y en Estudios Ingleses"},
+        {11, "Grado en Gestión Cultural"},
+        {12, "Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural"},
+        {13, "Grado en Bioquímica"},
+        {14, "Grado en Biología"},
+        {15, "Grado en Química"},
+        {16, "Grado en Enología"},
+        {17, "Grado en Física"},
+        {18, "Grado en Ciencias Ambientales"},
+        {19, "Grado en Relaciones Laborales y Recursos Humanos"},
+        {20, "Doble Grado en Turismo y en Traducción e Interpretación"},
+        {21, "Grado en Educación Social"},
+        {22, "Grado en Educación Primaria"},
+        {23, "Grado en Administración y Dirección de Empresas"},
+        {24, "Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas"},
+        {25, "Grado en Educación Infantil"},
+        {26, "Doble Grado en Educación Primaria y en Estudios Ingleses"},
+        {27, "Grado en Derecho"},
+        {28, "Grado en Turismo"},
+        {29, "Doble Grado en Derecho y en Administración y Dirección de Empresas"},
+        {30, "Grado en Veterinaria"},
+        {31, "Grado en Ciencia y Tecnología de los Alimentos"},
+        {32, "Grado en Enfermería"},
+        {33, "Grado en Medicina"},
+        {34, "Grado en Psicología"},
+        {35, "Grado en Fisioterapia"},
+        {36, "Doble Grado en Ingeniería Forestal y en Ingeniería Agroalimentaria y del Medio Rural"},
+        {37, "Grado en Ingeniería Forestal"},
+        {38, "Grado en Ingeniería en Recursos Energéticos y Mineros"},
+        {39, "Grado en Ingeniería Informática"},
+        {40, "Grado en Ingeniería Electrónica Industrial"},
+        {41, "Grado en Ingeniería Civil"},
+        {42, "Grado en Ingeniería Eléctrica"},
+        {43, "Grado en Ingeniería Agroalimentaria y del Medio Rural"},
+        {44, "Grado en Ingeniería Mecánica"},
+        {45, "Doble Grado en Ingeniería en Recursos Energéticos y Mineros y en Ingeniería Eléctrica"},
+        {46, "Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas"},
+        {47, "Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural"},
+        {48, "Doble Grado en Ingeniería Civil y en Ingeniería en Recursos Energéticos y Mineros"}
+    };
 
     std::cout<<"Inserte nombre del curso:"<<std::endl; 
     std::getline(std::cin,name); std::getline(std::cin,str);
@@ -119,152 +173,7 @@ void Coordinador_cursos::crear_curso(Lista_cursos &lista){
         std::cin.ignore();
         if(opcion<1||opcion>48){
             opcion=0;}
-        switch(opcion){
-            case 1:
-                estudio="Grado en Estudios Ingleses";
-                break;
-            case 2:
-                estudio="Doble Grado en Turismo y en Traducción e Interpretación";
-                break;
-            case 3:
-                estudio="Grado en Historia del Arte";
-                break;
-            case 4:
-                estudio="Grado en Filología Hispánica";
-                break;
-            case 5:
-                estudio="Grado en Traducción e Interpretación";
-                break;
-            case 6:
-                estudio="Doble Grado en Historia y en Historia del Arte";
-                break;
-            case 7:
-                estudio="Doble Grado en Traducción e Interpretación y en Filología Hispánica";
-                break;
-            case 8:
-                estudio="Grado en Cine y Cultura";
-                break;
-            case 9:
-                 estudio="Grado en Historia";
-                break;
-            case 10:
-                estudio="Doble Grado en Educación Primaria y en Estudios Ingleses";
-                break;
-            case 11:
-                estudio="Grado en Gestión Cultural";
-                break;
-            case 12:
-                estudio="Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural";
-                break;
-            case 13:
-                estudio="Grado en Bioquímica";
-                break;
-            case 14:
-                estudio="Grado en Biología";
-                break;
-            case 15:
-                estudio="Grado en Química";
-                break;
-            case 16:
-                estudio="Grado en Enología";
-                break;
-            case 17:
-                estudio="Grado en Física";
-                break;
-             case 18:
-                estudio="Grado en Ciencias Ambientales";
-                break;
-            case 19:
-                estudio="Grado en Relaciones Laborales y Recursos Humanos";
-                break;
-            case 20:
-                estudio="Doble Grado en Turismo y en Traducción e Interpretación";
-                break;
-            case 21:
-                estudio="Grado en Educación Social";
-                break;
-            case 22:
-                estudio="Grado en Educación Primaria";
-                break;
-             case 23:
-                estudio="Grado en Administración y Dirección de Empresas";
-                break;
-            case 24:
-                estudio="Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas";
-                break;
-            case 25:
-                estudio="Grado en Educación Infantil";
-                break;
-            case 26:
-                estudio="Doble Grado en Educación Primaria y en Estudios Ingleses";
-                break;
-            case 27:
-                estudio="Grado en Derecho";
-                break;
-             case 28:
-                estudio="Grado en Turismo";
-                break;
-            case 29:
-                estudio="Doble Grado en Derecho y en Administración y Dirección de Empresas";
-                break;
-            case 30:
-                estudio="Grado en Veterinaria";
-                break;
-            case 31:
-                estudio="Grado en Ciencia y Tecnología de los Alimentos";
-                break;
-            case 32:
-                estudio="Grado en Enfermería";
-                break;
-             case 33:
-                estudio="Grado en Medicina";
-                break;
-            case 34:
-                estudio="Grado en Psicología";
-                break;
-            case 35:
-                estudio="Grado en Fisioterapia";
-                break;
-            case 36:
-                estudio="Doble Grado en Ingeniería Forestal y en Ingeniería Agroalimentaria y del Medio Rural";
-                break;
-            case 37:
-                estudio="Grado en Ingeniería Forestal";
-                break;
-             case 38:
-                estudio="Grado en Ingeniería en Recursos Energéticos y Mineros";
-                break;
-            case 39:
-                estudio="Grado en Ingeniería Informática";
-                break;
-            case 40:
-                estudio="Grado en Ingeniería Electrónica Industrial";
-                break;
-            case 41:
-                estudio="Grado en Ingeniería Civil";
-                break;
-            case 42:
-                estudio="Grado en Ingeniería Eléctrica";
-                break;
-              case 43:
-                estudio="Grado en Ingeniería Agroalimentaria y del Medio Rural";
-                break;
-            case 44:
-                estudio="Grado en Ingeniería Mecánica";
-                break;
-            case 45:
-                estudio="Doble Grado en Ingeniería en Recursos Energéticos y Mineros y en Ingeniería Eléctrica";
-                break;
-            case 46:
-                estudio="Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas";
-                break;
-            case 47:
-                estudio="Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural";
-                break;
-             case 48:
-                estudio="Doble Grado en Ingeniería Civil y en Ingeniería en Recursos Energéticos y Mineros";
-                break;
-        }
+        estudio=lista_estudios.at(opcion);
     }           
 
     std::cout<<"Inserte duracion del curso:"<<std::endl; 
@@ -392,8 +301,60 @@ void Coordinador_cursos::modificar_curso(Curso &curso){
             }
             //ESTUDIO
             case 6:{
-                int opcion=0;
-                while(opcion=0){
+                std::map<int, std::string> lista_estudios = {
+
+                    {0, "No"}, {1, "Grado en Estudios Ingleses"},
+                    {2, "Doble Grado en Turismo y en Traducción e Interpretación"},
+                    {3, "Grado en Historia del Arte"},
+                    {4, "Grado en Filología Hispánica"},
+                    {5, "Grado en Traducción e Interpretación"},
+                    {6, "Doble Grado en Historia y en Historia del Arte"},
+                    {7, "Doble Grado en Traducción e Interpretación y en Filología Hispánica"},
+                    {8, "Grado en Cine y Cultura"},
+                    {9, "Grado en Historia"},
+                    {10, "Doble Grado en Educación Primaria y en Estudios Ingleses"},
+                    {11, "Grado en Gestión Cultural"},
+                    {12, "Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural"},
+                    {13, "Grado en Bioquímica"},
+                    {14, "Grado en Biología"},
+                    {15, "Grado en Química"},
+                    {16, "Grado en Enología"},
+                    {17, "Grado en Física"},
+                    {18, "Grado en Ciencias Ambientales"},
+                    {19, "Grado en Relaciones Laborales y Recursos Humanos"},
+                    {20, "Doble Grado en Turismo y en Traducción e Interpretación"},
+                    {21, "Grado en Educación Social"},
+                    {22, "Grado en Educación Primaria"},
+                    {23, "Grado en Administración y Dirección de Empresas"},
+                    {24, "Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas"},
+                    {25, "Grado en Educación Infantil"},
+                    {26, "Doble Grado en Educación Primaria y en Estudios Ingleses"},
+                    {27, "Grado en Derecho"},
+                    {28, "Grado en Turismo"},
+                    {29, "Doble Grado en Derecho y en Administración y Dirección de Empresas"},
+                    {30, "Grado en Veterinaria"},
+                    {31, "Grado en Ciencia y Tecnología de los Alimentos"},
+                    {32, "Grado en Enfermería"},
+                    {33, "Grado en Medicina"},
+                    {34, "Grado en Psicología"},
+                    {35, "Grado en Fisioterapia"},
+                    {36, "Doble Grado en Ingeniería Forestal y en Ingeniería Agroalimentaria y del Medio Rural"},
+                    {37, "Grado en Ingeniería Forestal"},
+                    {38, "Grado en Ingeniería en Recursos Energéticos y Mineros"},
+                    {39, "Grado en Ingeniería Informática"},
+                    {40, "Grado en Ingeniería Electrónica Industrial"},
+                    {41, "Grado en Ingeniería Civil"},
+                    {42, "Grado en Ingeniería Eléctrica"},
+                    {43, "Grado en Ingeniería Agroalimentaria y del Medio Rural"},
+                    {44, "Grado en Ingeniería Mecánica"},
+                    {45, "Doble Grado en Ingeniería en Recursos Energéticos y Mineros y en Ingeniería Eléctrica"},
+                    {46, "Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas"},
+                    {47, "Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural"},
+                    {48, "Doble Grado en Ingeniería Civil y en Ingeniería en Recursos Energéticos y Mineros"}
+                };
+
+                int opcion=-1;
+                while(opcion==-1){
                     std::cout<<"Introduzca el grado requerido para el curso:"<<std::endl; //Menú para elegir entre los grados que ofrece la UCO
                     std::cout<<"1 = Grado en Estudios Ingleses"<<std::endl;
                     std::cout<<"2 = Doble Grado en Turismo y en Traducción e Interpretación"<<std::endl;
@@ -445,158 +406,12 @@ void Coordinador_cursos::modificar_curso(Curso &curso){
                     std::cout<<"48 = Doble Grado en Ingeniería Civil y en Ingeniería en Recursos Energéticos y Mineros"<<std::endl;
                     std::cin>>opcion;
                     std::cin.ignore();
-                    if(opcion<1||opcion>48){
-                        opcion=0;
+                    if(opcion<0||opcion>48){
+                        opcion=-1;
                     }
-                    switch(opcion){
-                        case 1:
-                            estudio="Grado en Estudios Ingleses";
-                            break;
-                        case 2:
-                            estudio="Doble Grado en Turismo y en Traducción e Interpretación";
-                            break;
-                        case 3:
-                            estudio="Grado en Historia del Arte";
-                            break;
-                        case 4:
-                            estudio="Grado en Filología Hispánica";
-                            break;
-                        case 5:
-                            estudio="Grado en Traducción e Interpretación";
-                            break;
-                        case 6:
-                            estudio="Doble Grado en Historia y en Historia del Arte";
-                            break;
-                        case 7:
-                            estudio="Doble Grado en Traducción e Interpretación y en Filología Hispánica";
-                            break;
-                        case 8:
-                            estudio="Grado en Cine y Cultura";
-                            break;
-                        case 9:
-                            estudio="Grado en Historia";
-                            break;
-                        case 10:
-                            estudio="Doble Grado en Educación Primaria y en Estudios Ingleses";
-                            break;
-                        case 11:
-                            estudio="Grado en Gestión Cultural";
-                            break;
-                        case 12:
-                            estudio="Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural";
-                            break;
-                        case 13:
-                            estudio="Grado en Bioquímica";
-                            break;
-                        case 14:
-                            estudio="Grado en Biología";
-                            break;
-                        case 15:
-                            estudio="Grado en Química";
-                            break;
-                        case 16:
-                            estudio="Grado en Enología";
-                            break;
-                        case 17:
-                            estudio="Grado en Física";
-                            break;
-                        case 18:
-                            estudio="Grado en Ciencias Ambientales";
-                            break;
-                        case 19:
-                            estudio="Grado en Relaciones Laborales y Recursos Humanos";
-                            break;
-                        case 20:
-                            estudio="Doble Grado en Turismo y en Traducción e Interpretación";
-                            break;
-                        case 21:
-                            estudio="Grado en Educación Social";
-                            break;
-                        case 22:
-                            estudio="Grado en Educación Primaria";
-                            break;
-                        case 23:
-                            estudio="Grado en Administración y Dirección de Empresas";
-                            break;
-                        case 24:
-                            estudio="Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas";
-                            break;
-                        case 25:
-                            estudio="Grado en Educación Infantil";
-                            break;
-                        case 26:
-                            estudio="Doble Grado en Educación Primaria y en Estudios Ingleses";
-                            break;
-                        case 27:
-                            estudio="Grado en Derecho";
-                            break;
-                        case 28:
-                            estudio="Grado en Turismo";
-                            break;
-                        case 29:
-                            estudio="Doble Grado en Derecho y en Administración y Dirección de Empresas";
-                            break;
-                        case 30:
-                            estudio="Grado en Veterinaria";
-                            break;
-                        case 31:
-                            estudio="Grado en Ciencia y Tecnología de los Alimentos";
-                            break;
-                        case 32:
-                            estudio="Grado en Enfermería";
-                            break;
-                        case 33:
-                            estudio="Grado en Medicina";
-                            break;
-                        case 34:
-                            estudio="Grado en Psicología";
-                            break;
-                        case 35:
-                            estudio="Grado en Fisioterapia";
-                            break;
-                        case 36:
-                            estudio="Doble Grado en Ingeniería Forestal y en Ingeniería Agroalimentaria y del Medio Rural";
-                            break;
-                        case 37:
-                            estudio="Grado en Ingeniería Forestal";
-                            break;
-                        case 38:
-                            estudio="Grado en Ingeniería en Recursos Energéticos y Mineros";
-                            break;
-                        case 39:
-                            estudio="Grado en Ingeniería Informática";
-                            break;
-                        case 40:
-                            estudio="Grado en Ingeniería Electrónica Industrial";
-                            break;
-                        case 41:
-                            estudio="Grado en Ingeniería Civil";
-                            break;
-                        case 42:
-                            estudio="Grado en Ingeniería Eléctrica";
-                            break;
-                        case 43:
-                            estudio="Grado en Ingeniería Agroalimentaria y del Medio Rural";
-                            break;
-                        case 44:
-                            estudio="Grado en Ingeniería Mecánica";
-                            break;
-                        case 45:
-                            estudio="Doble Grado en Ingeniería en Recursos Energéticos y Mineros y en Ingeniería Eléctrica";
-                            break;
-                        case 46:
-                            estudio="Doble Grado en Ingeniería Civil y en Administración y Dirección de Empresas";
-                            break;
-                        case 47:
-                            estudio="Doble Grado en Enología y en Ingeniería Agroalimentaria y del Medio Rural";
-                            break;
-                        case 48:
-                            estudio="Doble Grado en Ingeniería Civil y en Ingeniería en Recursos Energéticos y Mineros";
-                            break;
-                        }
-                    }
+                }
 
-                curso.set_estudio(estudio);
+                curso.set_estudio(lista_estudios.at(opcion));
                 break;
             }     
             //DURACION

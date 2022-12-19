@@ -1,25 +1,13 @@
 000
 Curso prueba
-2023
+2030
 3
-10
+23
 Alex
 No
-15 dias
-*descripcion*
-edificio2
-aula3
-20
+32 dias
+Descripcion
+lugar
+aula
+30
 
-001
-Curso prueba2
-2022
-4
-10
-Alejandro
-No
-67 dias
-*descripcion*
-edificio34
-aula2
-23

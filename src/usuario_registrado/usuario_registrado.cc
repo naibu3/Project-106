@@ -63,3 +63,19 @@ bool Usuario_registrado::inscribirse(Curso c){
 
     return true;
 }
+
+bool Usuario_registrado::desinscribirse(Curso c){
+
+    if( c.desinscribir_usuario( this->get_id() ) ){
+        std::list<Curso>::iterator curso;
+        for(curso=cursos_inscritos_.begin();curso!=cursos_inscritos_.end();curso++){
+            if(curso->get_id()==c.get_id()){
+                cursos_inscritos_.erase(curso);
+                return true;
+            }
+        }
+    }
+    else{
+        return false;
+    }
+}

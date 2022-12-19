@@ -76,6 +76,7 @@ class Curso{
         inline std::list<std::string> get_lista_inscritos(){return lista_inscritos_;}
 
         bool inscribir_usuario(std::string id);
+        bool desinscribir_usuario(std::string id);
     
         inline void set_id(std::string id){id_=id;}
         inline void set_name(std::string name){name_=name;}

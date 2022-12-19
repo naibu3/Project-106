@@ -1,4 +1,5 @@
 #include "headers_main.h"
+#include <typeinfo>
 
 //<==MAIN()============================================================================>
 int main()
@@ -91,8 +92,6 @@ int main()
                     std::getline(fichero_usuarios, linea); email=linea;
                     std::getline(fichero_usuarios, linea); estudios=linea;
                     std::getline(fichero_usuarios, linea);
-
-                    #define REGISTRADO
                     break;
                 }
                 else{
@@ -126,8 +125,6 @@ int main()
                     std::getline(fichero_admin, linea); email=linea;
                     std::getline(fichero_admin, linea); estudios=linea;
                     std::getline(fichero_admin, linea);
-
-                    #define COORDINADOR
                     break;
                 }
                 else{
@@ -141,15 +138,13 @@ int main()
         }
     }
     
-    #ifdef REGISTRADO
-        Usuario_registrado usuario(username, email, estudios);
-    #elif COORDINADOR
-        Coordinador_cursos usuario(username, email, estudios);
-    #endif
-
+    Coordinador_cursos coordinador(username, email, estudios);
+    
+    Usuario_registrado usuario(username, email, estudios);
+    
     //Carga de la lista de cursos
     lista_cursos_extension.leer_datos();
-
+    
     //<=BUCLE MENU PPAL=================================================================>
     error=false;
     while(true){
@@ -157,7 +152,8 @@ int main()
         limpiar_pantalla();
         
         //DEBUG
-        std::cout<<privilegios_user<<" -> "<< usuario.get_username() <<std::endl;
+        if(privilegios_user==1) std::cout<<privilegios_user<<" -> "<< usuario.get_username()<<std::endl;
+        if(privilegios_user==2) std::cout<<privilegios_user<<" -> "<< coordinador.get_username()<<std::endl;
         //DEBUG END
 
         imprimir_menu_ppal(privilegios_user);
@@ -174,13 +170,17 @@ int main()
             case 1:
                 //MOSTRAR LISTA CURSOS______________________________________________________________________
                 if(privilegios_user==0) menu_lista_cursos(lista_cursos_extension);
-                else menu_lista_cursos(&lista_cursos_extension, usuario);
+                else if(privilegios_user==1) menu_lista_cursos(&lista_cursos_extension, usuario);
+                else if(privilegios_user==2) menu_lista_cursos(&lista_cursos_extension, coordinador);
                 break;
             
             case 2:
                 //VER MIS CURSOS______________________________________________________________________
-                if(privilegios_user>0){
+                if(privilegios_user==1){
                     menu_mis_cursos(usuario);
+                }
+                else if(privilegios_user==2){
+                    menu_mis_cursos(coordinador);
                 }
                 else{
                     std::cout<<"[ ERROR ] Debes estar inscrito para ver tus cursos!"<<std::endl;

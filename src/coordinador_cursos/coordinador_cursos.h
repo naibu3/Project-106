@@ -17,19 +17,18 @@ class Coordinador_cursos : public Usuario_registrado {
 
     private:
 
-
     public:
         
         Coordinador_cursos(std::string username,
                             std::string email="coordinador@uco.es",
                             std::string estudios="coordinador")
         :Usuario_registrado(username, email, estudios){
-
+                set_type("COORDINADOR");
                 set_privilegios(2);
         }
 
         void crear_curso(Lista_cursos &lista);
-        void borrar_curso(Lista_cursos &lista, Curso curso);
+        bool borrar_curso(Lista_cursos &lista, std::string id);
         void modificar_curso(Curso &curso);
         
 };

@@ -7,7 +7,9 @@ para su manejo.
 
 #include "lista_cursos.h"
 #include "curso.h"
+#include <filesystem>
 
+bool IsNumber(std::string text);
 
 bool Lista_cursos::add_curso(Curso curso){
 
@@ -93,24 +95,27 @@ bool Lista_cursos::leer_datos(){
     lista_cursos_.clear();
     
     std::ifstream file;
+    std::string linea;
+
+    int year, month, day, aforo;
+
     file.open("lista_cursos.txt");
     
     if(file.is_open()){
-        std::string linea;
         while(!file.eof()){
-
+            
             std::getline(file, linea); std::string id=linea;
             std::getline(file, linea); std::string name=linea;
-            std::getline(file, linea); int year=std::stoi(linea);
-            std::getline(file, linea); int month=std::stoi(linea);
-            std::getline(file, linea); int day=std::stoi(linea);
+            std::getline(file, linea); if(IsNumber(linea)) year=std::stoi(linea); else year=1;
+            std::getline(file, linea); if(IsNumber(linea)) month=std::stoi(linea); else month=1;
+            std::getline(file, linea); if(IsNumber(linea)) day=std::stoi(linea); else day=1;
             std::getline(file, linea); std::string ponente=linea;
             std::getline(file, linea); std::string estudio=linea;
             std::getline(file, linea); std::string duracion=linea;
             std::getline(file, linea); std::string descripcion=linea;
             std::getline(file, linea); std::string lugar=linea;
             std::getline(file, linea); std::string aula=linea;
-            std::getline(file, linea); int aforo=std::stoi(linea);
+            std::getline(file, linea); if(IsNumber(linea)) aforo=std::stoi(linea); else aforo=1;
 
             Curso curso(id, name, year, month, day, ponente, estudio, duracion,
                         descripcion, lugar, aula, aforo);
@@ -122,7 +127,6 @@ bool Lista_cursos::leer_datos(){
                 }
                 curso.inscribir_usuario(linea);
             }
-
             add_curso(curso);
         }
         file.close();
@@ -130,4 +134,14 @@ bool Lista_cursos::leer_datos(){
     }
     else return false;
 
+}
+
+bool IsNumber(std::string text)
+{
+    for (int i = 0; text[i] != 0; i++)
+    {
+        if (!(('0' <= text[i] && text[i] <= '9') || text[i] == '.'))
+            return false;
+    }
+    return true;
 }

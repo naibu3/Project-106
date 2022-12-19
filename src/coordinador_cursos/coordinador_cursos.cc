@@ -68,10 +68,10 @@ void Coordinador_cursos::crear_curso(Lista_cursos &lista){
     };
 
     std::cout<<"Inserte nombre del curso:"<<std::endl; 
-    std::getline(std::cin,name); std::getline(std::cin,str);
+    std::getline(std::cin,name);
 
     std::cout<<"Inserte id del curso:"<<std::endl; 
-    std::getline(std::cin,id); std::getline(std::cin,str);
+    std::getline(std::cin,id);
 
     year=0;
     while(year==0){
@@ -116,7 +116,7 @@ void Coordinador_cursos::crear_curso(Lista_cursos &lista){
     }   
 
     std::cout<<"Inserte ponente del curso:"<<std::endl; 
-    std::getline(std::cin, ponente); std::getline(std::cin,str);
+    std::getline(std::cin, ponente);
 
     int opcion=0;
     while(opcion=0){
@@ -177,30 +177,36 @@ void Coordinador_cursos::crear_curso(Lista_cursos &lista){
     }           
 
     std::cout<<"Inserte duracion del curso:"<<std::endl; 
-    std::getline(std::cin, duracion); std::getline(std::cin,str);            
+    std::getline(std::cin, duracion);
 
     std::cout<<"Inserte descripcion del curso(sin saltos de linea):"<<std::endl; 
-    std::getline(std::cin,descripcion); std::getline(std::cin,str);
+    std::getline(std::cin,descripcion);
 
     std::cout<<"Inserte lugar del curso:"<<std::endl; 
-    std::getline(std::cin, lugar); std::getline(std::cin,str);
+    std::getline(std::cin, lugar);
 
     std::cout<<"Inserte aula del curso:"<<std::endl; 
-    std::getline(std::cin,aula); std::getline(std::cin,str);
+    std::getline(std::cin,aula);
 
     std::cout<<"Inserte aforo del curso (int):"<<std::endl; 
     std::cin>>aforo;
-    std::cin.ignore();
 
     Curso curso(id, name, year, month, day, ponente, estudio,
                 duracion, descripcion, lugar, aula, aforo);
     lista.add_curso(curso);
 }
 
-void Coordinador_cursos::borrar_curso(Lista_cursos &lista, Curso curso){
+bool Coordinador_cursos::borrar_curso(Lista_cursos &lista, std::string id){
 
-    lista.remove_curso(curso.get_id());    
-    curso.~Curso();
+    std::list<Curso>::iterator curso;
+    for(curso=(lista.get_list()).begin(); curso!=(lista.get_list()).end();curso++){
+        if(curso->get_id() == id){
+            lista.remove_curso(id);    
+            curso->~Curso();
+            return true;
+        }
+    }
+    return false;
 }
 
 void Coordinador_cursos::modificar_curso(Curso &curso){

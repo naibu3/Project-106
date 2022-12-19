@@ -19,7 +19,7 @@ Clase que representa al usuario registrado.
 class Usuario_registrado : public Usuario {
 
     private:
-        std::string username_, email_,estudios_;
+        std::string username_, email_,estudios_, type_;
         std::list<Curso> cursos_inscritos_;
 
 
@@ -27,12 +27,14 @@ class Usuario_registrado : public Usuario {
         Usuario_registrado(std::string username,
                             std::string email,
                             std::string estudios):Usuario(){
-                                
+                                type_="REGISTRADO";
                                 username_=username;
                                 email_=email;
                                 estudios_=estudios;
                                 set_privilegios(1);
                             }
+        inline std::string get_type(){return type_;}
+        inline void set_type(std::string type){type_=type;}
 
         inline std::string get_username(){return username_;}
         inline std::string get_email(){return email_;}
@@ -41,7 +43,8 @@ class Usuario_registrado : public Usuario {
 
         //std::string set_estudios();
     
-        bool inscribirse(Curso c); 
+        bool inscribirse(Curso c);
+        bool desinscribirse(Curso c); 
 
 };
 

@@ -17,7 +17,19 @@ void menu_mis_cursos(Usuario_registrado &user){
         switch(option2){
             case 1:{
                 //DESINSCRIBIRSE
-                
+                std::string eleccion;
+                std::cout<<"Introduce el id del curso que quieras abandonar y pulsa intro: ";
+                std::cin>>eleccion;
+                std::list<Curso>::iterator curso;
+                for(curso=user.get_cursos_inscritos().begin(); curso!=user.get_cursos_inscritos().end();curso++){
+                    if(curso->get_id()==eleccion){
+                        user.desinscribirse(*curso);
+                        (*curso).desinscribir_usuario(user.get_id());
+                        std::cout<<"[ OK ] Datos modificados."<<std::endl;
+                        break;
+                    }
+                }
+                std::cout<<"[ ERROR ] No se han podido modificar los datos."<<std::endl;
                 break;
             }
             case 9:{
@@ -47,7 +59,7 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
 
     while(!exit){
 
-        //limpiar_pantalla();
+        limpiar_pantalla();
         imprimir_listado_cursos(lista_cursos->get_list());
         imprimir_menu_lista_cursos(user.get_privilegios());
 
@@ -61,6 +73,8 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
                     std::cout<<"Inserte id del curso y pulse intro: ";
                     std::cin>>eleccion;
                     if(user.inscribirse( lista_cursos->get_curso(eleccion)) ){
+                        ( lista_cursos->get_curso(eleccion)).inscribir_usuario(user.get_id());
+                        lista_cursos->escribir_datos();
                         std::cout<<std::endl<<"Inscrito con exito!"<<std::endl;
                         pulsa_intro();
                     }
@@ -96,6 +110,7 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
     while(!exit){
 
         limpiar_pantalla();
+        std::cout<<"PRIVILEGIOS"<<user.get_privilegios()<<std::endl;
         imprimir_listado_cursos(lista_cursos -> get_list());
         imprimir_menu_lista_cursos(user.get_privilegios());
 
@@ -111,16 +126,38 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
             case 2:{
                 //CREAR CURSO
                 user.crear_curso(*lista_cursos);
+                lista_cursos->escribir_datos();
                 break;
             }
             case 3:{
                 //BORRAR CURSO
-                //user.borrar_curso(*lista_cursos);
+                std::string eleccion;
+                std::cout<<"Introduce el id del curso que quieras borrar y pulsa intro: ";
+                std::cin>>eleccion;
+                if(user.borrar_curso(*lista_cursos, eleccion)){
+                    lista_cursos->escribir_datos();
+                    std::cout<<"[ OK ] Datos borrados."<<std::endl;
+                }
+                else{
+                    std::cout<<"[ ERROR ] No se han podido borrar los datos."<<std::endl;
+                }
                 break;
             }
             case 4:{
                 //MODIFICAR CURSO
-                //user.modificar_curso();
+                std::string eleccion;
+                std::cout<<"Introduce el id del curso que quieras modificar y pulsa intro: ";
+                std::cin>>eleccion;
+                std::list<Curso>::iterator curso;
+                for(curso=(lista_cursos->get_list()).begin(); curso!=(lista_cursos->get_list()).end();curso++){
+                    if(curso->get_id()==eleccion){
+                        user.modificar_curso(*curso);
+                        lista_cursos->escribir_datos();
+                        std::cout<<"[ OK ] Datos modificados."<<std::endl;
+                        break;
+                    }
+                }
+                std::cout<<"[ ERROR ] No se han podido modificar los datos."<<std::endl;
                 break;
             }
             case 9:{

@@ -106,7 +106,7 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
             std::cout<<"Introduce el id de un curso y pulsa intro: ";
             std::cin>>id;
             limpiar_pantalla();
-            imprimir_curso(lista_cursos.get_curso(id));
+            imprimir_curso((*lista_cursos).get_curso(id));
             std::cout<<"Teclea \'s\' para salir"<<std::endl;
             std::cin>>option2;
             ver_curso=false;

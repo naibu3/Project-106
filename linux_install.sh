@@ -1,4 +1,3 @@
-!# /bin/bash
 
 verde='\033[32m'
 rosa='\033[35m'

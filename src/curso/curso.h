@@ -35,17 +35,17 @@ class Curso{
 
     public:
 
-        Curso(std::string id="",
-                std::string name="",
+        Curso(std::string id,
+                std::string name="empty",
                 int year=0,
                 int month=0,
                 int day=0,
-                std::string ponente="",
-                std::string estudio="",
-                std::string duracion="",
-                std::string descripcion="",
-                std::string lugar="",
-                std::string aula="",
+                std::string ponente="empty",
+                std::string estudio="empty",
+                std::string duracion="empty",
+                std::string descripcion="empty",
+                std::string lugar="empty",
+                std::string aula="empty",
                 int aforo=0){
                 
             id_=id;
@@ -55,6 +55,7 @@ class Curso{
             day_=day;
             ponente_=ponente;
             estudio_=estudio;
+            duracion_=duracion;
             descripcion_=descripcion;
             lugar_=lugar;
             aula_=aula;
@@ -68,6 +69,7 @@ class Curso{
         inline int get_year(){return year_;}
         inline int get_day(){return day_;}
         inline std::string get_ponente(){return ponente_;}
+        inline std::string get_duracion(){return duracion_;}
         inline std::string get_descripcion(){return descripcion_;}
         inline std::string get_lugar(){return lugar_;}
         inline std::string get_aula(){return aula_;}
@@ -76,7 +78,7 @@ class Curso{
         inline std::list<std::string> get_lista_inscritos(){return lista_inscritos_;}
 
         bool inscribir_usuario(std::string id);
-        bool desinscribir_usuario(std::string id);
+        //void desinscribir_usuario(std::string id);
     
         inline void set_id(std::string id){id_=id;}
         inline void set_name(std::string name){name_=name;}

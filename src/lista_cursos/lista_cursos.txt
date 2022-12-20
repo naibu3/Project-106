@@ -11,3 +11,15 @@ lugar
 aula
 30
 
+001
+Curso prueba
+2030
+3
+23
+Alex
+No
+32 dias
+Descripcion
+lugar
+aula
+30

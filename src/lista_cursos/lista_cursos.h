@@ -33,6 +33,8 @@ class Lista_cursos{
         bool remove_curso(std::string id);
         bool remove_curso(Curso curso);
 
+        void borrar_lista();
+
         bool escribir_datos();
         bool leer_datos();
 

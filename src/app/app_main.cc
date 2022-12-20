@@ -171,7 +171,7 @@ int main()
                 //MOSTRAR LISTA CURSOS______________________________________________________________________
                 if(privilegios_user==0) menu_lista_cursos(lista_cursos_extension);
                 else if(privilegios_user==1) menu_lista_cursos(&lista_cursos_extension, usuario);
-                else if(privilegios_user==2) menu_lista_cursos(&lista_cursos_extension, coordinador);
+                else if(privilegios_user==2) menu_lista_cursos(lista_cursos_extension, coordinador);
                 break;
             
             case 2:

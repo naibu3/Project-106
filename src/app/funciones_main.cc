@@ -20,15 +20,12 @@ void menu_mis_cursos(Usuario_registrado &user){
                 std::string eleccion;
                 std::cout<<"Introduce el id del curso que quieras abandonar y pulsa intro: ";
                 std::cin>>eleccion;
-                std::list<Curso>::iterator curso;
-                for(curso=user.get_cursos_inscritos().begin(); curso!=user.get_cursos_inscritos().end();curso++){
-                    if(curso->get_id()==eleccion){
-                        user.desinscribirse(*curso);
-                        (*curso).desinscribir_usuario(user.get_id());
-                        std::cout<<"[ OK ] Datos modificados."<<std::endl;
-                        break;
-                    }
-                }
+
+                user.desinscribirse(eleccion);
+
+                std::cout<<"HOLA"<<std::endl;
+                std::cout<<"[ OK ] Datos modificados."<<std::endl;
+                break;
                 std::cout<<"[ ERROR ] No se han podido modificar los datos."<<std::endl;
                 break;
             }
@@ -102,7 +99,7 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
 }
 
 //MENU LISTADO DE CURSOS (Sobrecarga para el Coordinador de cursos)
-void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
+void menu_lista_cursos(Lista_cursos& lista_cursos, Coordinador_cursos& user){
 
     std::string option2;
     bool exit=false;
@@ -110,8 +107,8 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
     while(!exit){
 
         limpiar_pantalla();
-        std::cout<<"PRIVILEGIOS"<<user.get_privilegios()<<std::endl;
-        imprimir_listado_cursos(lista_cursos -> get_list());
+        //std::cout<<"PRIVILEGIOS"<<user.get_privilegios()<<std::endl;//DEBUG
+        imprimir_listado_cursos(lista_cursos.get_list());
         imprimir_menu_lista_cursos(user.get_privilegios());
 
         std::cin>>option2;
@@ -125,8 +122,8 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
             }
             case 2:{
                 //CREAR CURSO
-                user.crear_curso(*lista_cursos);
-                lista_cursos->escribir_datos();
+                user.crear_curso(lista_cursos);
+                lista_cursos.escribir_datos();
                 break;
             }
             case 3:{
@@ -134,30 +131,21 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
                 std::string eleccion;
                 std::cout<<"Introduce el id del curso que quieras borrar y pulsa intro: ";
                 std::cin>>eleccion;
-                if(user.borrar_curso(*lista_cursos, eleccion)){
-                    lista_cursos->escribir_datos();
-                    std::cout<<"[ OK ] Datos borrados."<<std::endl;
-                }
-                else{
-                    std::cout<<"[ ERROR ] No se han podido borrar los datos."<<std::endl;
-                }
+                user.borrar_curso(lista_cursos, eleccion);
+                //lista_cursos.escribir_datos();
+                std::cout<<"[ OK ] Datos borrados."<<std::endl;
                 break;
             }
             case 4:{
                 //MODIFICAR CURSO
                 std::string eleccion;
                 std::cout<<"Introduce el id del curso que quieras modificar y pulsa intro: ";
-                std::cin>>eleccion;
-                std::list<Curso>::iterator curso;
-                for(curso=(lista_cursos->get_list()).begin(); curso!=(lista_cursos->get_list()).end();curso++){
-                    if(curso->get_id()==eleccion){
-                        user.modificar_curso(*curso);
-                        lista_cursos->escribir_datos();
-                        std::cout<<"[ OK ] Datos modificados."<<std::endl;
-                        break;
-                    }
-                }
-                std::cout<<"[ ERROR ] No se han podido modificar los datos."<<std::endl;
+                std::cin>>eleccion; 
+                limpiar_pantalla();
+                Curso aux=lista_cursos.get_curso(eleccion);
+                user.modificar_curso( aux );
+                lista_cursos.escribir_datos();
+                std::cout<<"[ OK ] Datos modificados."<<std::endl;
                 break;
             }
             case 9:{
@@ -167,7 +155,6 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Coordinador_cursos& user){
                 pulsa_intro();
                 break;
             }
-
             default:{
                 //LA OPCION NO EXISTE O ES INVALIDA
                 std::cout<<"[ ERROR ] Selecciona una opcion!"<<std::endl;
@@ -184,7 +171,7 @@ void menu_lista_cursos(Lista_cursos lista_cursos){
 
     std::string option2;
     bool exit=false;
-
+    bool ver_curso=false;
     while(!exit){
 
         limpiar_pantalla();
@@ -194,6 +181,11 @@ void menu_lista_cursos(Lista_cursos lista_cursos){
         std::cin>>option2;
 
         switch(std::stoi(option2)){
+            //INFO CURSO
+            case 0:{
+                ver_curso=true;
+                break;
+            }
             case 9:{
                 //VOLVER
                 exit=true;
@@ -210,18 +202,28 @@ void menu_lista_cursos(Lista_cursos lista_cursos){
                 break;
             }
         }
+        if(ver_curso){
+            std::string id;
+            std::cout<<"Introduce el id de un curso y pulsa intro: ";
+            std::cin>>id;
+            limpiar_pantalla();
+            imprimir_curso(lista_cursos.get_curso(id));
+            std::cout<<"Teclea \'s\' para salir"<<std::endl;
+            std::cin>>option2;
+            ver_curso=false;
+        }
     }
 }
 
 
-void pulsa_intro(){
+bool pulsa_intro(){
     char a;
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<size_t>::max());
     while(a = std::cin.get()){
         if(a == '\n'){
             a='a';
-            break;
+            return true;
         }
     }
 }
@@ -272,6 +274,7 @@ void imprimir_menu_ppal(int privilegios){
 void imprimir_menu_lista_cursos(int privilegios){
 
     std::cout<<std::endl;
+    std::cout<<"    (0) - Ver curso."<<std::endl;
     if(privilegios>0){
         std::cout<<"    (1) - Inscribirse."<<std::endl;
     }
@@ -336,4 +339,16 @@ void imprimir_menu_login(){
     std::cout<<"    (9) - Salir"<<std::endl;
     std::cout<<"Introduce una opcion y pulsa intro: ";
 
+}
+
+void imprimir_curso(Curso c){
+
+    std::cout<<"("<<c.get_id()<<") - "<<c.get_name()<<std::endl<<std::endl;
+    std::cout<<"Fecha "<<c.get_day()<<"/"<<c.get_month()<<"/"<<c.get_year()<<std::endl;
+    std::cout<<"Duracion"<<c.get_duracion()<<std::endl;
+    std::cout<<"Estudios necesarios: "<<c.get_estudio()<<std::endl;
+    std::cout<<"Ponente: "<<c.get_ponente()<<std::endl;
+    std::cout<<"Descripcion: "<<c.get_descripcion()<<std::endl;
+    std::cout<<"Lugar: "<<c.get_lugar()<<", "<<c.get_aula()<<std::endl;
+    std::cout<<"Aforo: "<<c.get_aforo()<<std::endl;
 }

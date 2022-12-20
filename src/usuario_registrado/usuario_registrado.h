@@ -20,7 +20,7 @@ class Usuario_registrado : public Usuario {
 
     private:
         std::string username_, email_,estudios_, type_;
-        std::list<Curso> cursos_inscritos_;
+        Lista_cursos cursos_inscritos_;
 
 
     public:
@@ -39,12 +39,12 @@ class Usuario_registrado : public Usuario {
         inline std::string get_username(){return username_;}
         inline std::string get_email(){return email_;}
         inline std::string get_estudios(){return estudios_;}
-        inline std::list<Curso> get_cursos_inscritos(){return cursos_inscritos_;}
+        inline std::list<Curso> get_cursos_inscritos(){return cursos_inscritos_.get_list();}
 
         //std::string set_estudios();
     
         bool inscribirse(Curso c);
-        bool desinscribirse(Curso c); 
+        bool desinscribirse(std::string id); 
 
 };
 

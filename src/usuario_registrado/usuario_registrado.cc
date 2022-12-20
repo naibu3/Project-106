@@ -59,23 +59,17 @@ bool Usuario_registrado::inscribirse(Curso c){
         printf("Ya estás inscrito!\n");
         return false;
     }
-    cursos_inscritos_.push_back(c);
+    cursos_inscritos_.add_curso(c);
 
     return true;
 }
 
-bool Usuario_registrado::desinscribirse(Curso c){
+bool Usuario_registrado::desinscribirse(std::string id){
 
-    if( c.desinscribir_usuario( this->get_id() ) ){
-        std::list<Curso>::iterator curso;
-        for(curso=cursos_inscritos_.begin();curso!=cursos_inscritos_.end();curso++){
-            if(curso->get_id()==c.get_id()){
-                cursos_inscritos_.erase(curso);
-                return true;
-            }
-        }
+    if( cursos_inscritos_.remove_curso(cursos_inscritos_.get_curso(id)) ){
+        //(cursos_inscritos_.get_curso(id)).desinscribir_usuario(this->get_id());
+        return true;
     }
-    else{
-        return false;
-    }
+    
+    return false;
 }

@@ -19,16 +19,3 @@ bool Curso::inscribir_usuario(std::string id){
     lista_inscritos_.push_back(id);
     return true;
 }
-
-bool Curso::desinscribir_usuario(std::string id){
-
-    //COMPROBAR SI YA ESTA INSCRITO
-    std::list<std::string>::iterator it;
-    for(it = lista_inscritos_.begin(); it != lista_inscritos_.end(); it++){
-        if( (*it) == id ){
-            lista_inscritos_.remove(id);
-            return true;
-        }
-    }
-    return false;
-}

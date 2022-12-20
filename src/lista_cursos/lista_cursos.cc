@@ -50,36 +50,43 @@ bool Lista_cursos::remove_curso(std::string id){
 
 bool Lista_cursos::remove_curso(Curso curso){return remove_curso(curso.get_id());}
 
+void Lista_cursos::borrar_lista(){
+    lista_cursos_.clear();
+}
+
 /*------------------------------------------------------------*/
 
 bool Lista_cursos::escribir_datos(){
 
-    std::fstream file;
-    file.open("lista_cursos.txt");
+    std::ofstream file;
+    file.open("lista_cursos.txt", std::fstream::out);
 
     if(file.is_open()){
 
         std::list<Curso>::iterator it;
         for(it = lista_cursos_.begin(); it != lista_cursos_.end(); it++){
 
-            file <<it->get_id()<<"\n";
-            file <<it->get_name()<<"\n";
-            file << it->get_year()<<"\n";
-            file << it->get_month()<<"\n";
-            file << it->get_day()<<"\n";
-            file << it->get_ponente()<<"\n";
-            file << it->get_estudio()<<"\n";
-            file << it->get_descripcion()<<"\n";
-            file << it->get_lugar()<<"\n";
-            file << it->get_aula()<<"\n";
-            file << it->get_aforo()<<"\n";
-            
+            file <<(it->get_id())<<std::endl;
+            file <<(it->get_name())<<std::endl;
+            file <<(it->get_year())<<std::endl;
+            file <<(it->get_month())<<std::endl;
+            file <<(it->get_day())<<std::endl;
+            file <<(it->get_ponente())<<std::endl;
+            file <<(it->get_estudio())<<std::endl;
+            file <<(it->get_duracion())<<std::endl;
+            file <<(it->get_descripcion())<<std::endl;
+            file <<(it->get_lugar())<<std::endl;
+            file <<(it->get_aula())<<std::endl;
+            file <<(it->get_aforo())<<std::endl;
+
             //Guardar usuarios
-            std::list<std::string>::iterator user;
-            for( user = (it->get_lista_inscritos()).begin(); user != (it->get_lista_inscritos()).end(); user++){
-                file<<(*user)<<std::endl;
-            }
-            file << "\n";
+            /*std::list<std::string>::iterator user;
+            if( !(it->get_lista_inscritos()).empty() ){
+                for( user = (it->get_lista_inscritos()).begin(); user != (it->get_lista_inscritos()).end(); user++){
+                    file<<(*user)<<" ";
+                }
+            }*/
+            file << std::endl;
         }
 
         file.close();
@@ -96,37 +103,56 @@ bool Lista_cursos::leer_datos(){
     
     std::ifstream file;
     std::string linea;
+    std::string token;
+    std::string id, name, year, month, day, ponente, estudio, duracion, descripcion, lugar, aula, aforo;
 
-    int year, month, day, aforo;
-
-    file.open("lista_cursos.txt");
+    file.open("lista_cursos.txt", std::fstream::in);
     
     if(file.is_open()){
         while(!file.eof()){
-            
-            std::getline(file, linea); std::string id=linea;
-            std::getline(file, linea); std::string name=linea;
-            std::getline(file, linea); if(IsNumber(linea)) year=std::stoi(linea); else year=1;
-            std::getline(file, linea); if(IsNumber(linea)) month=std::stoi(linea); else month=1;
-            std::getline(file, linea); if(IsNumber(linea)) day=std::stoi(linea); else day=1;
-            std::getline(file, linea); std::string ponente=linea;
-            std::getline(file, linea); std::string estudio=linea;
-            std::getline(file, linea); std::string duracion=linea;
-            std::getline(file, linea); std::string descripcion=linea;
-            std::getline(file, linea); std::string lugar=linea;
-            std::getline(file, linea); std::string aula=linea;
-            std::getline(file, linea); if(IsNumber(linea)) aforo=std::stoi(linea); else aforo=1;
 
-            Curso curso(id, name, year, month, day, ponente, estudio, duracion,
-                        descripcion, lugar, aula, aforo);
+            std::getline(file, linea); id=linea;
+            if(linea==""){break;}
+            std::cout<<"ID -> "<<linea<<std::endl;
+            std::getline(file, linea); name=linea;
+            if(linea==""){break;}
+            std::cout<<"NAME -> "<<linea<<std::endl;
+            std::getline(file, linea); year=linea;
+            if(linea==""){break;}
+            std::cout<<"YEAR -> "<<linea<<std::endl;
+            std::getline(file, linea); month=linea;
+            if(linea==""){break;}
+            std::cout<<"MES -> "<<linea<<std::endl;
+            std::getline(file, linea); day=linea;
+            if(linea==""){break;}
+            std::cout<<"DIA -> "<<linea<<std::endl;
+            std::getline(file, linea); ponente=linea;
+            if(linea==""){break;}
+            std::cout<<"PONENTE -> "<<linea<<std::endl;
+            std::getline(file, linea); estudio=linea;
+            if(linea==""){break;}
+            std::cout<<"ESTUDIOS -> "<<linea<<std::endl;
+            std::getline(file, linea); duracion=linea;
+            if(linea==""){break;}
+            std::cout<<"DURACION -> "<<linea<<std::endl;
+            std::getline(file, linea); descripcion=linea;
+            if(linea==""){break;}
+            std::cout<<"DESCRIPCION -> "<<linea<<std::endl;
+            std::getline(file, linea); lugar=linea;
+            if(linea==""){break;}
+            std::cout<<"LUGAR -> "<<linea<<std::endl;
+            std::getline(file, linea); aula=linea;
+            if(linea==""){break;}
+            std::cout<<"AULA -> "<<linea<<std::endl;
+            std::getline(file, linea); aforo=linea;
+            if(linea==""){break;}
+            std::cout<<"AFORO -> "<<linea<<std::endl;
 
-            while(std::getline(file, linea)){
-                
-                if(linea==""){
-                    break;
-                }
-                curso.inscribir_usuario(linea);
-            }
+            Curso curso(id, name, std::stoi(year), std::stoi(month), std::stoi(day),
+                            ponente, estudio, duracion,
+                            descripcion, lugar, aula, std::stoi(aforo));
+
+            getline(file, linea);
             add_curso(curso);
         }
         file.close();
@@ -134,14 +160,4 @@ bool Lista_cursos::leer_datos(){
     }
     else return false;
 
-}
-
-bool IsNumber(std::string text)
-{
-    for (int i = 0; text[i] != 0; i++)
-    {
-        if (!(('0' <= text[i] && text[i] <= '9') || text[i] == '.'))
-            return false;
-    }
-    return true;
 }

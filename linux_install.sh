@@ -14,7 +14,7 @@ cd ..;
 echo "\n${rosa}Creating symlink to files...${reset}"
 rm banner.txt lista_cursos.txt;
 ln -s ./src/app/banner.txt;
-ln -s ./src/lista_cursos/lista_cursos.txt;
+cp ./src/lista_cursos/lista_cursos.txt ./.;
 
 echo "\n${rosa}Adding executable to current folder...${reset}"
 cp ./build/src/app/app_main ./gestor_cursos;

@@ -1,1 +1,13 @@
-./src/lista_cursos/lista_cursos.txt
+000
+Curso prueba
+2030
+3
+23
+Alex
+No
+32 dias
+Descripcion
+lugar
+aula
+30
+

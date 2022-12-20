@@ -28,7 +28,7 @@ class Coordinador_cursos : public Usuario_registrado {
         }
 
         void crear_curso(Lista_cursos &lista);
-        bool borrar_curso(Lista_cursos &lista, std::string id);
+        void borrar_curso(Lista_cursos &lista, std::string id);
         void modificar_curso(Curso &curso);
         
 };

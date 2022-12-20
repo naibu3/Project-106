@@ -53,6 +53,7 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
 
     std::string option2;
     bool exit=false;
+    bool ver_curso=false;
 
     while(!exit){
 
@@ -63,6 +64,11 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
         std::cin>>option2;
 
         switch(std::stoi(option2)){
+            //INFO CURSO
+            case 0:{
+                ver_curso=true;
+                break;
+            }
             case 1:{
                 //INSCRIBIRSE
                 if(user.get_privilegios()==1){
@@ -95,6 +101,16 @@ void menu_lista_cursos(Lista_cursos* lista_cursos, Usuario_registrado& user){
                 break;
             }
         }
+        if(ver_curso){
+            std::string id;
+            std::cout<<"Introduce el id de un curso y pulsa intro: ";
+            std::cin>>id;
+            limpiar_pantalla();
+            imprimir_curso(lista_cursos.get_curso(id));
+            std::cout<<"Teclea \'s\' para salir"<<std::endl;
+            std::cin>>option2;
+            ver_curso=false;
+        }
     }
 }
 
@@ -103,6 +119,7 @@ void menu_lista_cursos(Lista_cursos& lista_cursos, Coordinador_cursos& user){
 
     std::string option2;
     bool exit=false;
+    bool ver_curso=false;
 
     while(!exit){
 
@@ -114,6 +131,11 @@ void menu_lista_cursos(Lista_cursos& lista_cursos, Coordinador_cursos& user){
         std::cin>>option2;
 
         switch(std::stoi(option2)){
+            //INFO CURSO
+            case 0:{
+                ver_curso=true;
+                break;
+            }
             case 1:{
                 //INSCRIBIRSE
                 std::cout<<"[ ERROR ] El coordinador no debería inscribirse! Pulsa INTRO"<<std::endl;
@@ -162,6 +184,16 @@ void menu_lista_cursos(Lista_cursos& lista_cursos, Coordinador_cursos& user){
                 pulsa_intro();
                 break;
             }
+        }
+        if(ver_curso){
+            std::string id;
+            std::cout<<"Introduce el id de un curso y pulsa intro: ";
+            std::cin>>id;
+            limpiar_pantalla();
+            imprimir_curso(lista_cursos.get_curso(id));
+            std::cout<<"Teclea \'s\' para salir"<<std::endl;
+            std::cin>>option2;
+            ver_curso=false;
         }
     }
 }

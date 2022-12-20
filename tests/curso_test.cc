@@ -42,6 +42,12 @@ TEST(Curso, Inscribirse) {
     EXPECT_TRUE(c1.inscribir_usuario("1"));
 }
 
+TEST(Curso, Desinscribirse) {
+    Curso c1("000");
+
+    EXPECT_TRUE(c1.inscribir_usuario("1"));
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

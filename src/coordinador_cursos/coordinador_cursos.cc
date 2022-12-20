@@ -162,7 +162,6 @@ void Coordinador_cursos::borrar_curso(Lista_cursos &lista, std::string id){
 
     
     lista.remove_curso(id);
-    lista.get_curso(id).~Curso();
 }
 
 void Coordinador_cursos::modificar_curso(Curso &curso){

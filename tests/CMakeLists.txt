@@ -18,7 +18,7 @@ target_link_libraries(curso_test
 add_test(curso_gtests curso_test)
 
 # Testing lista_cursos library
-#add_executable(curso_test curso_test.cc)
-#target_link_libraries(curso_test
-# PRIVATE GTest::GTest curso)
-#add_test(curso_gtests curso_test)
+add_executable(lista_cursos_test lista_cursos_test.cc)
+target_link_libraries(lista_cursos_test
+ PRIVATE GTest::GTest lista_cursos)
+add_test(lista_cursos_gtests lista_cursos_test)

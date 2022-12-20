@@ -3,19 +3,19 @@ verde='\033[32m'
 rosa='\033[35m'
 reset='\033[0m'
 
-echo "\n${rosa}Building...${reset}"
+echo "\nBuilding..."
 cd build;
 cmake ..;
 make;
-echo "\n${verde}Built! (We hope)${reset}"
+echo "\nBuilt! (We hope)"
 
 cd ..;
-echo "\n${rosa}Creating symlink to files...${reset}"
+echo "\nCreating symlink to files..."
 rm banner.txt lista_cursos.txt;
 ln -s ./src/app/banner.txt;
 cp ./src/lista_cursos/lista_cursos.txt ./.;
 
-echo "\n${rosa}Adding executable to current folder...${reset}"
+echo "\nAdding executable to current folder..."
 cp ./build/src/app/app_main ./gestor_cursos;
 
-echo "\n[${verde} OK ${reset}] Done\n"
+echo "\n[ OK ] Done\n"

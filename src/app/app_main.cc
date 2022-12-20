@@ -65,7 +65,7 @@ int main()
         }
     }
     if(privilegios_user>0){
-        std::cout<<"Introduce tu id: "; 
+        std::cout<<"Introduce tu id \n(igual que el de la UCO o 'admin' para coordinador): "; 
         std::cin>>id_user; 
         std::cout<<std::endl;
     }
@@ -152,8 +152,8 @@ int main()
         limpiar_pantalla();
         
         //DEBUG
-        if(privilegios_user==1) std::cout<<privilegios_user<<" -> "<< usuario.get_username()<<std::endl;
-        if(privilegios_user==2) std::cout<<privilegios_user<<" -> "<< coordinador.get_username()<<std::endl;
+        if(privilegios_user==1) std::cout<<" User: "<< usuario.get_username()<<std::endl;
+        if(privilegios_user==2) std::cout<<" User: "<<coordinador.get_id()<<" -> "<< coordinador.get_username()<<std::endl;
         //DEBUG END
 
         imprimir_menu_ppal(privilegios_user);

@@ -376,8 +376,8 @@ void imprimir_menu_login(){
 void imprimir_curso(Curso c){
 
     std::cout<<"("<<c.get_id()<<") - "<<c.get_name()<<std::endl<<std::endl;
-    std::cout<<"Fecha "<<c.get_day()<<"/"<<c.get_month()<<"/"<<c.get_year()<<std::endl;
-    std::cout<<"Duracion"<<c.get_duracion()<<std::endl;
+    std::cout<<"Fecha: "<<c.get_day()<<"/"<<c.get_month()<<"/"<<c.get_year()<<std::endl;
+    std::cout<<"Duracion: "<<c.get_duracion()<<std::endl;
     std::cout<<"Estudios necesarios: "<<c.get_estudio()<<std::endl;
     std::cout<<"Ponente: "<<c.get_ponente()<<std::endl;
     std::cout<<"Descripcion: "<<c.get_descripcion()<<std::endl;
